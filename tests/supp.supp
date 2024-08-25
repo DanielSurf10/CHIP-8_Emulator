@@ -2,20 +2,18 @@
    <insert_a_suppression_name_here>
    Memcheck:Leak
    match-leak-kinds: reachable
-   fun:_Znwm
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   fun:_ZN4llvm2cl5applyINS0_3optINS_13RegBankSelect4ModeELb0ENS0_6parserIS4_EEEENS0_12OptionHiddenEJNS0_18NumOccurrencesFlagENS0_11ValuesClassEEEEvPT_RKT0_DpRKT1_
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   fun:call_init.part.0
-   fun:call_init
-   fun:_dl_init
-   fun:_dl_catch_exception
-   fun:dl_open_worker
-   fun:dl_open_worker
-   fun:_dl_catch_exception
-   fun:_dl_open
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_hashmap_put
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_memimport_attach_memfd
+   fun:pa_pstream_attach_memfd_shmid
+   fun:pa_common_command_register_memfd_shmid
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   fun:pa_pdispatch_run
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
 }
 {
    <insert_a_suppression_name_here>
@@ -23,14 +21,31 @@
    match-leak-kinds: reachable
    fun:malloc
    fun:pa_xmalloc
-   fun:pa_xmemdup
-   fun:pa_flist_new_with_name
+   fun:pa_tls_new
    obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
    fun:pa_run_once
-   fun:pa_tagstruct_new
+   fun:pa_cstrerror
+   fun:pa_config_parse
+   fun:pa_config_parse
+   fun:pa_client_conf_load
+   fun:pa_context_new_with_proplist
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_queue_push
+   fun:pa_pstream_send_packet
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
    obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_pdispatch_run
    obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
    obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
    fun:pa_mainloop_dispatch
 }
@@ -39,55 +54,8 @@
    Memcheck:Leak
    match-leak-kinds: reachable
    fun:malloc
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XrmGetStringDatabase
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XGetDefault
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   fun:main
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_xmemdup
-   fun:pa_flist_new_with_name
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_run_once
-   fun:pa_packet_new
-   fun:pa_packet_new_data
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_pstream_send_tagstruct_with_creds
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:_dbus_register_shutdown_func
-   fun:dbus_message_unref
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   fun:dbus_connection_send_with_reply_and_block
-   fun:dbus_bus_register
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   fun:main
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
    fun:_XlcAddLoader
+   fun:_XlcInitLoader
    fun:_XOpenLC
    fun:_XrmInitParseInfo
    obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
@@ -97,62 +65,6 @@
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:realloc
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   fun:_dbus_type_writer_recurse
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   fun:dbus_message_set_reply_serial
-   fun:dbus_message_new_error
-   fun:dbus_connection_send_with_reply
-   fun:dbus_connection_send_with_reply_and_block
-   fun:dbus_bus_register
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:_XlcCreateLocaleDataBase
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLC
-   fun:_XlcUtf8Loader
-   fun:_XOpenLC
-   fun:_XrmInitParseInfo
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XrmGetStringDatabase
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XGetDefault
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:calloc
-   fun:calloc
-   fun:do_lookup_unique
-   fun:do_lookup_x
-   fun:_dl_lookup_symbol_x
-   fun:elf_machine_rela
-   fun:elf_dynamic_do_Rela
-   fun:_dl_relocate_object
-   fun:dl_open_worker_begin
-   fun:_dl_catch_exception
-   fun:dl_open_worker
-   fun:_dl_catch_exception
-   fun:_dl_open
-   fun:dlopen_doit
-   fun:_dl_catch_exception
-   fun:_dl_catch_error
 }
 {
    <insert_a_suppression_name_here>
@@ -167,60 +79,9 @@
    fun:dbus_message_new_error
    fun:dbus_connection_send_with_reply
    fun:dbus_connection_send_with_reply_and_block
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:malloc
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:malloc
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:calloc
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   fun:_dbus_message_loader_queue_messages
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   fun:dbus_pending_call_block
-   fun:dbus_connection_send_with_reply_and_block
    fun:dbus_bus_register
    obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
 }
 {
    <insert_a_suppression_name_here>
@@ -229,33 +90,49 @@
    fun:_Znwm
    obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
    fun:_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   fun:_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   fun:_ZN4llvm2cl18getGeneralCategoryEv
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   fun:_ZN4llvm18PassManagerBuilder18addGlobalExtensionENS0_16ExtensionPointTyESt8functionIFvRKS0_RNS_6legacy15PassManagerBaseEEE
    obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
    fun:call_init.part.0
    fun:call_init
    fun:_dl_init
    fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
 }
 {
    <insert_a_suppression_name_here>
    Memcheck:Leak
    match-leak-kinds: reachable
-   fun:realloc
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   fun:_dbus_type_writer_recurse
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   fun:dbus_message_new_method_call
+   fun:malloc
+   fun:malloc
+   fun:add_to_global_resize
+   fun:dl_open_worker_begin
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_exception
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen_implementation
+   fun:dlopen@@GLIBC_2.34
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:main
 }
 {
    <insert_a_suppression_name_here>
@@ -279,223 +156,6 @@
    <insert_a_suppression_name_here>
    Memcheck:Leak
    match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_cstrerror
-   fun:pa_config_parse
-   fun:pa_config_parse
-   fun:pa_client_conf_load
-   fun:pa_context_new_with_proplist
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:XInitThreads
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   fun:main
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:_XOpenLC
-   fun:_XrmInitParseInfo
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XrmGetStringDatabase
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XGetDefault
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   fun:main
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:calloc
-   fun:_XrmInternalStringToQuark
-   fun:XrmInitialize
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XGetDefault
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   fun:main
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:_Znwm
-   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   fun:call_init.part.0
-   fun:call_init
-   fun:_dl_init
-   fun:_dl_catch_exception
-   fun:dl_open_worker
-   fun:dl_open_worker
-   fun:_dl_catch_exception
-   fun:_dl_open
-   fun:dlopen_doit
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:_Znwm
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   fun:_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   fun:_ZN4llvm2cl18getGeneralCategoryEv
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   fun:call_init.part.0
-   fun:call_init
-   fun:_dl_init
-   fun:_dl_catch_exception
-   fun:dl_open_worker
-   fun:dl_open_worker
-   fun:_dl_catch_exception
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_mutex_new
-   fun:pa_static_mutex_get
-   fun:pa_once_begin
-   fun:pa_page_size
-   fun:pa_mempool_new
-   fun:pa_context_new_with_proplist
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_mutex_new
-   fun:pa_aupdate_new
-   fun:pa_memtrap_add
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_memimport_attach_memfd
-   fun:pa_pstream_attach_memfd_shmid
-   fun:pa_pstream_register_memfd_mempool
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_pdispatch_run
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_mutex_new
-   fun:pa_static_mutex_get
-   fun:pa_once_begin
-   fun:pa_run_once
-   fun:pa_cstrerror
-   fun:pa_config_parse
-   fun:pa_config_parse
-   fun:pa_client_conf_load
-   fun:pa_context_new_with_proplist
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: indirect
-   fun:calloc
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:calloc
-   fun:pa_xmalloc0
-   fun:pa_flist_new_with_name
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_run_once
-   fun:pa_pdispatch_register_reply
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_mainloop_dispatch
-   fun:pa_mainloop_iterate
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLC
-   fun:_XlcUtf8Loader
-   fun:_XOpenLC
-   fun:XSetLocaleModifiers
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   fun:main
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:calloc
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
    fun:_Znwm
    fun:_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_
    obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
@@ -514,457 +174,17 @@
 {
    <insert_a_suppression_name_here>
    Memcheck:Leak
-   match-leak-kinds: indirect
-   fun:malloc
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
    match-leak-kinds: reachable
    fun:malloc
    fun:pa_xmalloc
-   fun:pa_mutex_new
-   fun:pa_static_mutex_get
-   fun:pa_once_begin
-   fun:pa_run_once
-   fun:pa_idxset_put
-   fun:pa_pstream_attach_memfd_shmid
-   fun:pa_pstream_register_memfd_mempool
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
    obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_pdispatch_run
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:calloc
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLocaleDataBase
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLC
-   fun:_XlcDefaultLoader
-   fun:_XOpenLC
-   fun:_XrmInitParseInfo
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XrmGetStringDatabase
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:calloc
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLC
-   fun:_XlcUtf8Loader
-   fun:_XOpenLC
-   fun:XSetLocaleModifiers
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_pdispatch_register_reply
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_mainloop_dispatch
-   fun:pa_mainloop_iterate
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:_Znwm
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   fun:_ZN4llvm2cl6Option11addArgumentEv
-   fun:_ZN4llvm2mc28RegisterMCTargetOptionsFlagsC1Ev
-   fun:call_init.part.0
-   fun:call_init
-   fun:_dl_init
-   fun:_dl_catch_exception
-   fun:dl_open_worker
-   fun:dl_open_worker
-   fun:_dl_catch_exception
-   fun:_dl_open
-   fun:dlopen_doit
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:_Znwm
-   fun:_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_jESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS7_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   fun:call_init.part.0
-   fun:call_init
-   fun:_dl_init
-   fun:_dl_catch_exception
-   fun:dl_open_worker
-   fun:dl_open_worker
-   fun:_dl_catch_exception
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: definite
-   fun:calloc
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   fun:start_thread
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:_Znwm
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   fun:call_init.part.0
-   fun:call_init
-   fun:_dl_init
-   fun:_dl_catch_exception
-   fun:dl_open_worker
-   fun:dl_open_worker
-   fun:_dl_catch_exception
-   fun:_dl_open
-   fun:dlopen_doit
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:calloc
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   fun:dbus_message_new_method_call
-   fun:dbus_bus_register
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   fun:main
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_idxset_put
-   fun:pa_pstream_attach_memfd_shmid
-   fun:pa_common_command_register_memfd_shmid
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   fun:pa_pdispatch_run
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_mainloop_dispatch
-   fun:pa_mainloop_iterate
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:calloc
-   fun:pa_xmalloc0
-   fun:pa_flist_new_with_name
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_run_once
-   fun:pa_memimport_get
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_mainloop_dispatch
-   fun:pa_mainloop_iterate
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_semaphore_new
-   fun:pa_aupdate_new
-   fun:pa_memtrap_add
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_memimport_attach_memfd
-   fun:pa_pstream_attach_memfd_shmid
-   fun:pa_pstream_register_memfd_mempool
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_pdispatch_run
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:_XrmInternalStringToQuark
-   fun:XrmInitialize
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XGetDefault
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   fun:main
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: indirect
-   fun:malloc
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_mutex_new
-   fun:pa_static_mutex_get
-   fun:pa_once_begin
-   fun:pa_run_once
-   fun:pa_pdispatch_register_reply
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_mainloop_dispatch
-   fun:pa_mainloop_iterate
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_mutex_new
-   fun:pa_static_mutex_get
-   fun:pa_once_begin
-   fun:pa_run_once
-   fun:pa_packet_new
-   fun:pa_packet_new_data
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_pstream_send_tagstruct_with_creds
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:calloc
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:_XlcCreateDefaultCharSet
-   fun:_XlcAddCT
-   fun:_XlcInitCTInfo
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLC
-   fun:_XlcUtf8Loader
-   fun:_XOpenLC
-   fun:_XrmInitParseInfo
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XrmGetStringDatabase
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLC
-   fun:_XlcUtf8Loader
-   fun:_XOpenLC
-   fun:XSetLocaleModifiers
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   fun:main
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_pstream_send_packet
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_pdispatch_run
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_mainloop_dispatch
-   fun:pa_mainloop_iterate
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLocaleDataBase
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLC
-   fun:_XlcDefaultLoader
-   fun:_XOpenLC
-   fun:_XrmInitParseInfo
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:calloc
-   fun:pa_xmalloc0
-   fun:pa_flist_new_with_name
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   fun:pa_run_once
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   fun:main
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_queue_push
-   fun:pa_pstream_send_packet
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_pstream_send_tagstruct_with_creds
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_mainloop_dispatch
-   fun:pa_mainloop_iterate
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_queue_push
-   fun:pa_pstream_send_packet
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_pdispatch_run
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_mainloop_dispatch
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:realloc
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLC
-   fun:_XlcUtf8Loader
-   fun:_XOpenLC
-   fun:XSetLocaleModifiers
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_mutex_new
-   fun:pa_static_mutex_get
-   fun:pa_once_begin
-   fun:pa_log_levelv_meta
-   fun:pa_log_level_meta
+   fun:pa_cstrerror
+   fun:pa_config_parse
    fun:pa_config_parse
    fun:pa_client_conf_load
    fun:pa_context_new_with_proplist
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
 }
@@ -993,16 +213,103 @@
    match-leak-kinds: reachable
    fun:malloc
    fun:pa_xmalloc
-   fun:pa_xmemdup
-   fun:pa_flist_new_with_name
+   fun:pa_hashmap_put
+   fun:pa_proplist_sets
+   fun:pa_init_proplist
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
    obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_run_once
+   fun:pa_pdispatch_run
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_mainloop_dispatch
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcCreateLocaleDataBase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   fun:_dbus_type_writer_recurse
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   fun:dbus_message_set_reply_serial
+   fun:dbus_message_new_error
+   fun:dbus_connection_send_with_reply
+   fun:dbus_connection_send_with_reply_and_block
+   fun:dbus_bus_register
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   fun:_ZN4llvm2cl5applyINS0_3optINS_13RegBankSelect4ModeELb0ENS0_6parserIS4_EEEENS0_12OptionHiddenEJNS0_18NumOccurrencesFlagENS0_11ValuesClassEEEEvPT_RKT0_DpRKT1_
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLocaleDataBase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
    fun:pa_idxset_put
    fun:pa_pstream_attach_memfd_shmid
    fun:pa_pstream_register_memfd_mempool
    obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
    obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
    fun:pa_pdispatch_run
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_mainloop_dispatch
 }
 {
    <insert_a_suppression_name_here>
@@ -1026,33 +333,17 @@
    Memcheck:Leak
    match-leak-kinds: reachable
    fun:malloc
-   fun:strdup
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLocaleDataBase
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLC
-   fun:_XlcUtf8Loader
-   fun:_XOpenLC
-   fun:XSetLocaleModifiers
+   fun:pa_xmalloc
+   fun:pa_hashmap_put
+   fun:pa_memimport_get
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_mainloop_dispatch
+   fun:pa_mainloop_iterate
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:calloc
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   fun:start_thread
-   fun:clone
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
 }
 {
    <insert_a_suppression_name_here>
@@ -1064,103 +355,20 @@
    fun:pa_static_mutex_get
    fun:pa_once_begin
    fun:pa_run_once
-   fun:pa_queue_push
-   fun:pa_pstream_send_packet
+   fun:pa_tagstruct_new
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
    obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_pstream_send_tagstruct_with_creds
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:calloc
-   fun:_XlcCreateLocaleDataBase
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLC
-   fun:_XlcUtf8Loader
-   fun:_XOpenLC
-   fun:XSetLocaleModifiers
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:realloc
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLocaleDataBase
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLC
-   fun:_XlcUtf8Loader
-   fun:_XOpenLC
-   fun:XSetLocaleModifiers
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:calloc
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:pa_mainloop_dispatch
 }
 {
    <insert_a_suppression_name_here>
    Memcheck:Leak
    match-leak-kinds: reachable
    fun:malloc
-   fun:_XlcAddCT
-   fun:_XlcInitCTInfo
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLC
-   fun:_XlcUtf8Loader
-   fun:_XOpenLC
-   fun:_XrmInitParseInfo
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XrmGetStringDatabase
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:strdup
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLC
-   fun:_XlcUtf8Loader
-   fun:_XOpenLC
-   fun:XSetLocaleModifiers
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
+   fun:_dbus_strdup
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
    fun:main
@@ -1169,52 +377,63 @@
    <insert_a_suppression_name_here>
    Memcheck:Leak
    match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_log_set_ident
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_log_levelv_meta
+   fun:pa_log_level_meta
+   fun:pa_config_parse
+   fun:pa_client_conf_load
+   fun:pa_context_new_with_proplist
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
    fun:calloc
-   fun:pa_xmalloc0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLocaleDataBase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:XInitThreads
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_xmemdup
    fun:pa_flist_new_with_name
    obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
    fun:pa_run_once
-   fun:pa_packet_new
-   fun:pa_packet_new_data
+   fun:pa_queue_push
+   fun:pa_pstream_send_packet
    obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
    fun:pa_pstream_send_tagstruct_with_creds
    obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
    obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_aupdate_new
-   fun:pa_memtrap_add
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_memimport_attach_memfd
-   fun:pa_pstream_attach_memfd_shmid
-   fun:pa_pstream_register_memfd_mempool
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_pdispatch_run
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_hashmap_put
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_memimport_attach_memfd
-   fun:pa_pstream_attach_memfd_shmid
-   fun:pa_pstream_register_memfd_mempool
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_pdispatch_run
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
 }
 {
    <insert_a_suppression_name_here>
@@ -1236,89 +455,35 @@
    <insert_a_suppression_name_here>
    Memcheck:Leak
    match-leak-kinds: reachable
-   fun:calloc
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLC
-   fun:_XlcDefaultLoader
-   fun:_XOpenLC
-   fun:_XrmInitParseInfo
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XrmGetStringDatabase
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XGetDefault
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_packet_new
+   fun:pa_packet_new_data
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_pstream_send_tagstruct_with_creds
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_mainloop_dispatch
+   fun:pa_mainloop_iterate
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
 }
 {
    <insert_a_suppression_name_here>
    Memcheck:Leak
    match-leak-kinds: reachable
-   fun:malloc
-   fun:malloc
-   fun:strdup
-   fun:_dl_load_cache_lookup
-   fun:_dl_map_object
-   fun:openaux
-   fun:_dl_catch_exception
-   fun:_dl_map_object_deps
-   fun:dl_open_worker_begin
-   fun:_dl_catch_exception
-   fun:dl_open_worker
-   fun:_dl_catch_exception
-   fun:_dl_open
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:_XlcAddCharSet
-   fun:_XlcAddCT
-   fun:_XlcInitCTInfo
+   fun:realloc
    obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
    obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
    fun:_XlcCreateLC
    fun:_XlcUtf8Loader
    fun:_XOpenLC
-   fun:_XrmInitParseInfo
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XrmGetStringDatabase
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: indirect
-   fun:realloc
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Addr8
-   fun:strncmp
-   fun:is_dst
-   fun:_dl_dst_count
-   fun:expand_dynamic_string_token
-   fun:fillin_rpath.isra.0
-   fun:decompose_rpath
-   fun:cache_rpath
-   fun:cache_rpath
-   fun:_dl_map_object
-   fun:openaux
-   fun:_dl_catch_exception
-   fun:_dl_map_object_deps
-   fun:dl_open_worker_begin
-   fun:_dl_catch_exception
-   fun:dl_open_worker
+   fun:XSetLocaleModifiers
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:main
 }
 {
    <insert_a_suppression_name_here>
@@ -1326,30 +491,13 @@
    match-leak-kinds: reachable
    fun:malloc
    fun:pa_xmalloc
-   fun:pa_xmemdup
-   fun:pa_flist_new_with_name
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_run_once
-   fun:pa_queue_push
-   fun:pa_pstream_send_packet
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_pstream_send_tagstruct_with_creds
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:_XlcSetConverter
-   fun:_XlcDefaultLoader
-   fun:_XOpenLC
-   fun:_XrmInitParseInfo
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XrmGetStringDatabase
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XGetDefault
+   fun:pa_mutex_new
+   fun:pa_static_mutex_get
+   fun:pa_once_begin
+   fun:pa_page_size
+   fun:pa_mempool_new
+   fun:pa_context_new_with_proplist
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
@@ -1357,11 +505,8 @@
 {
    <insert_a_suppression_name_here>
    Memcheck:Leak
-   match-leak-kinds: indirect
-   fun:malloc
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   match-leak-kinds: possible
+   fun:calloc
    obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
    obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
    obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
@@ -1370,6 +515,9 @@
    obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
    obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
    obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   fun:glXCreateContext
 }
 {
    <insert_a_suppression_name_here>
@@ -1377,8 +525,10 @@
    match-leak-kinds: reachable
    fun:_Znwm
    obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   fun:_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E
    obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   fun:_ZN4llvm2cl6Option11addArgumentEv
+   fun:_ZN4llvm2cl18getGeneralCategoryEv
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
    obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
    fun:call_init.part.0
    fun:call_init
@@ -1387,42 +537,6 @@
    fun:dl_open_worker
    fun:dl_open_worker
    fun:_dl_catch_exception
-   fun:_dl_open
-   fun:dlopen_doit
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:_XlcAddLoader
-   fun:_XlcInitLoader
-   fun:_XOpenLC
-   fun:_XrmInitParseInfo
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XrmGetStringDatabase
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XGetDefault
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:calloc
-   fun:pa_xmalloc0
-   fun:pa_flist_new_with_name
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_run_once
-   fun:pa_hashmap_put
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_memimport_attach_memfd
-   fun:pa_pstream_attach_memfd_shmid
-   fun:pa_pstream_register_memfd_mempool
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
 }
 {
    <insert_a_suppression_name_here>
@@ -1430,9 +544,12 @@
    match-leak-kinds: reachable
    fun:calloc
    fun:calloc
-   fun:_dl_new_object
-   fun:_dl_map_object_from_fd
-   fun:_dl_map_object
+   fun:do_lookup_unique
+   fun:do_lookup_x
+   fun:_dl_lookup_symbol_x
+   fun:elf_machine_rela
+   fun:elf_dynamic_do_Rela
+   fun:_dl_relocate_object
    fun:dl_open_worker_begin
    fun:_dl_catch_exception
    fun:dl_open_worker
@@ -1446,16 +563,16 @@
    <insert_a_suppression_name_here>
    Memcheck:Leak
    match-leak-kinds: reachable
-   fun:malloc
-   fun:_XlcCreateLocaleDataBase
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLC
-   fun:_XlcUtf8Loader
-   fun:_XOpenLC
-   fun:XSetLocaleModifiers
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
 }
@@ -1480,9 +597,87 @@
    <insert_a_suppression_name_here>
    Memcheck:Leak
    match-leak-kinds: reachable
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   fun:dbus_message_new_method_call
+   fun:dbus_bus_register
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_XlcCreateLocaleDataBase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:calloc
+   fun:_dl_new_object
+   fun:_dl_map_object_from_fd
+   fun:_dl_map_object
+   fun:openaux
+   fun:_dl_catch_exception
+   fun:_dl_map_object_deps
+   fun:dl_open_worker_begin
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
    fun:malloc
-   fun:strdup
-   fun:_XlcResolveLocaleName
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_mutex_new
+   fun:pa_static_mutex_get
+   fun:pa_once_begin
+   fun:pa_run_once
+   fun:pa_packet_new
+   fun:pa_packet_new_data
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_pstream_send_tagstruct_with_creds
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLocaleDataBase
    obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
    obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
    fun:_XlcCreateLC
@@ -1490,17 +685,47 @@
    fun:_XOpenLC
    fun:_XrmInitParseInfo
    obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XrmGetStringDatabase
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
 }
 {
    <insert_a_suppression_name_here>
    Memcheck:Leak
    match-leak-kinds: reachable
-   fun:calloc
-   fun:_XlcCreateDefaultCharSet
-   fun:_XlcAddCT
-   fun:_XlcInitCTInfo
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_mutex_new
+   fun:pa_static_mutex_get
+   fun:pa_once_begin
+   fun:pa_run_once
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcCreateLocaleDataBase
    obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
    obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
    fun:_XlcCreateLC
@@ -1509,16 +734,25 @@
    fun:_XrmInitParseInfo
    obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
    fun:XrmGetStringDatabase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XGetDefault
 }
 {
    <insert_a_suppression_name_here>
    Memcheck:Leak
    match-leak-kinds: reachable
    fun:malloc
-   fun:dbus_threads_init
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   fun:main
+   fun:pa_xmalloc
+   fun:pa_mutex_new
+   fun:pa_static_mutex_get
+   fun:pa_once_begin
+   fun:pa_run_once
+   fun:pa_queue_push
+   fun:pa_pstream_send_packet
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_pstream_send_tagstruct_with_creds
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
 }
 {
    <insert_a_suppression_name_here>
@@ -1545,6 +779,59 @@
 {
    <insert_a_suppression_name_here>
    Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:_XrmInitParseInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XrmGetStringDatabase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XGetDefault
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_packet_new
+   fun:pa_packet_new_data
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_pdispatch_run
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_mainloop_dispatch
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_jESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS7_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
    match-leak-kinds: possible
    fun:calloc
    obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
@@ -1563,10 +850,57 @@
    <insert_a_suppression_name_here>
    Memcheck:Leak
    match-leak-kinds: reachable
-   fun:calloc
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_mutex_new
+   fun:pa_static_mutex_get
+   fun:pa_once_begin
+   fun:pa_log_levelv_meta
+   fun:pa_log_level_meta
+   fun:pa_config_parse
+   fun:pa_client_conf_load
+   fun:pa_context_new_with_proplist
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
    obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XrmInternalStringToQuark
+   fun:XrmInitialize
    obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLocaleDataBase
+   fun:XGetDefault
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
    obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
    obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
    fun:_XlcCreateLC
@@ -1575,6 +909,9 @@
    fun:XSetLocaleModifiers
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:main
 }
 {
    <insert_a_suppression_name_here>
@@ -1596,18 +933,35 @@
 {
    <insert_a_suppression_name_here>
    Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
    match-leak-kinds: reachable
    fun:malloc
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLocaleDataBase
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:strdup
    fun:_XlcCreateLC
-   fun:_XlcUtf8Loader
+   fun:_XlcDefaultLoader
    fun:_XOpenLC
-   fun:XSetLocaleModifiers
+   fun:_XrmInitParseInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XrmGetStringDatabase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XGetDefault
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
 }
 {
@@ -1615,7 +969,189 @@
    Memcheck:Leak
    match-leak-kinds: reachable
    fun:malloc
-   fun:_XlcCreateLocaleDataBase
+   fun:pa_xmalloc
+   fun:pa_mutex_new
+   fun:pa_static_mutex_get
+   fun:pa_once_begin
+   fun:pa_run_once
+   fun:pa_cstrerror
+   fun:pa_config_parse
+   fun:pa_config_parse
+   fun:pa_client_conf_load
+   fun:pa_context_new_with_proplist
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_mutex_new
+   fun:pa_static_mutex_get
+   fun:pa_once_begin
+   fun:pa_run_once
+   fun:pa_hashmap_put
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_memimport_attach_memfd
+   fun:pa_pstream_attach_memfd_shmid
+   fun:pa_pstream_register_memfd_mempool
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:malloc
+   fun:strdup
+   fun:_dl_load_cache_lookup
+   fun:_dl_map_object
+   fun:dl_open_worker_begin
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_exception
+   fun:_dl_catch_error
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcAddCT
+   fun:_XlcInitCTInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:_XrmInitParseInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XrmGetStringDatabase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:_XrmInitParseInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XrmGetStringDatabase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XGetDefault
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_xmemdup
+   fun:pa_flist_new_with_name
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   fun:pa_run_once
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_mutex_new
+   fun:pa_static_mutex_get
+   fun:pa_once_begin
+   fun:pa_run_once
+   fun:pa_idxset_put
+   fun:pa_pstream_attach_memfd_shmid
+   fun:pa_pstream_register_memfd_mempool
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_pdispatch_run
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcDefaultMapModifiers
+   fun:XSetLocaleModifiers
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
    obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
    obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
    fun:_XlcCreateLC
@@ -1626,6 +1162,7 @@
    fun:XrmGetStringDatabase
    obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
    fun:XGetDefault
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
 }
 {
    <insert_a_suppression_name_here>
@@ -1633,16 +1170,160 @@
    match-leak-kinds: reachable
    fun:malloc
    fun:pa_xmalloc
-   fun:pa_tagstruct_new
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   fun:pa_queue_push
+   fun:pa_pstream_send_packet
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_pstream_send_tagstruct_with_creds
    obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
    obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
    obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
    fun:pa_mainloop_dispatch
    fun:pa_mainloop_iterate
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcAddCharSet
+   fun:_XlcAddCT
+   fun:_XlcInitCTInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:_XrmInitParseInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XrmGetStringDatabase
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_mutex_new
+   fun:pa_static_mutex_get
+   fun:pa_once_begin
+   fun:pa_memtrap_add
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_memimport_attach_memfd
+   fun:pa_pstream_attach_memfd_shmid
+   fun:pa_pstream_register_memfd_mempool
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:dbus_threads_init
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   fun:start_thread
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_mutex_new
+   fun:pa_aupdate_new
+   fun:pa_memtrap_add
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_memimport_attach_memfd
+   fun:pa_pstream_attach_memfd_shmid
+   fun:pa_pstream_register_memfd_mempool
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_pdispatch_run
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:pa_xmalloc0
+   fun:pa_flist_new_with_name
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_run_once
+   fun:pa_pstream_send_packet
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_pstream_send_tagstruct_with_creds
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_mainloop_dispatch
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_XrmInternalStringToQuark
+   fun:XrmInitialize
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XGetDefault
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:main
 }
 {
    <insert_a_suppression_name_here>
@@ -1651,6 +1332,339 @@
    fun:malloc
    obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
    fun:dbus_threads_init
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_XlcCreateDefaultCharSet
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_pstream_send_packet
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_pstream_send_tagstruct_with_creds
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_mainloop_dispatch
+   fun:pa_mainloop_iterate
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_xmemdup
+   fun:pa_flist_new_with_name
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_run_once
+   fun:pa_hashmap_put
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_memimport_attach_memfd
+   fun:pa_pstream_attach_memfd_shmid
+   fun:pa_pstream_register_memfd_mempool
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_pstream_send_packet
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_pdispatch_run
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_mainloop_dispatch
+   fun:pa_mainloop_iterate
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_semaphore_new
+   fun:pa_aupdate_new
+   fun:pa_memtrap_add
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_memimport_attach_memfd
+   fun:pa_pstream_attach_memfd_shmid
+   fun:pa_pstream_register_memfd_mempool
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_pdispatch_run
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   fun:_dbus_type_writer_recurse
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   fun:dbus_message_new_method_call
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   fun:_dbus_message_loader_queue_messages
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   fun:dbus_pending_call_block
+   fun:dbus_connection_send_with_reply_and_block
+   fun:dbus_bus_register
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:malloc
+   fun:strdup
+   fun:_dl_load_cache_lookup
+   fun:_dl_map_object
+   fun:openaux
+   fun:_dl_catch_exception
+   fun:_dl_map_object_deps
+   fun:dl_open_worker_begin
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:pa_xmalloc0
+   fun:pa_flist_new_with_name
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_run_once
+   fun:pa_pdispatch_register_reply
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_mainloop_dispatch
+   fun:pa_mainloop_iterate
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   fun:_XlcResolveLocaleName
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:_XrmInitParseInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XrmGetStringDatabase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_xmemdup
+   fun:pa_flist_new_with_name
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_run_once
+   fun:pa_packet_new
+   fun:pa_packet_new_data
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_pstream_send_tagstruct_with_creds
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLocaleDataBase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:_XrmInitParseInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XrmGetStringDatabase
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:malloc
+   fun:_dl_new_object
+   fun:_dl_map_object_from_fd
+   fun:_dl_map_object
+   fun:dl_open_worker_begin
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_exception
+   fun:_dl_catch_error
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr8
+   fun:strncmp
+   fun:is_dst
+   fun:_dl_dst_substitute
+   fun:fillin_rpath.isra.0
+   fun:decompose_rpath
+   fun:cache_rpath
+   fun:cache_rpath
+   fun:_dl_map_object
+   fun:openaux
+   fun:_dl_catch_exception
+   fun:_dl_map_object_deps
+   fun:dl_open_worker_begin
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_dbus_register_shutdown_func
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
    fun:main
@@ -1676,293 +1690,10 @@
    <insert_a_suppression_name_here>
    Memcheck:Leak
    match-leak-kinds: reachable
-   fun:malloc
-   fun:_XlcSetConverter
-   fun:_XlcUtf8Loader
-   fun:_XOpenLC
-   fun:XSetLocaleModifiers
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   fun:main
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:_XlcAddCharSet
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLC
-   fun:_XlcUtf8Loader
-   fun:_XOpenLC
-   fun:XSetLocaleModifiers
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_log_set_ident
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_log_levelv_meta
-   fun:pa_log_level_meta
-   fun:pa_config_parse
-   fun:pa_client_conf_load
-   fun:pa_context_new_with_proplist
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_packet_new
-   fun:pa_packet_new_data
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_pstream_send_tagstruct_with_fds
-   fun:pa_pstream_register_memfd_mempool
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_pdispatch_run
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:calloc
-   fun:pa_xmalloc0
-   fun:pa_flist_new_with_name
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_run_once
-   fun:pa_tagstruct_new
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_mainloop_dispatch
-   fun:pa_mainloop_iterate
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:_XlcSetConverter
-   fun:_XlcAddUtf8Converters
-   fun:_XlcUtf8Loader
-   fun:_XOpenLC
-   fun:XSetLocaleModifiers
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   fun:main
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_pstream_send_packet
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_pstream_send_tagstruct_with_creds
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_mainloop_dispatch
-   fun:pa_mainloop_iterate
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:calloc
-   fun:pa_xmalloc0
-   fun:pa_flist_new_with_name
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_run_once
-   fun:pa_queue_push
-   fun:pa_pstream_send_packet
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_pstream_send_tagstruct_with_creds
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:strdup
-   fun:_XlcCreateLC
-   fun:_XlcDefaultLoader
-   fun:_XOpenLC
-   fun:_XrmInitParseInfo
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XrmGetStringDatabase
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XGetDefault
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:_dbus_strdup
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   fun:main
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:realloc
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   fun:_dbus_string_copy_len
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   fun:_dbus_type_writer_write_basic
-   fun:dbus_message_iter_append_basic
-   fun:dbus_message_new_error
-   fun:dbus_connection_send_with_reply
-   fun:dbus_connection_send_with_reply_and_block
-   fun:dbus_bus_register
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_xmemdup
-   fun:pa_flist_new_with_name
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_run_once
-   fun:pa_hashmap_put
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_memimport_attach_memfd
-   fun:pa_pstream_attach_memfd_shmid
-   fun:pa_pstream_register_memfd_mempool
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:calloc
-   fun:calloc
-   fun:_dl_check_map_versions
-   fun:dl_open_worker_begin
-   fun:_dl_catch_exception
-   fun:dl_open_worker
-   fun:_dl_catch_exception
-   fun:_dl_open
-   fun:dlopen_doit
-   fun:_dl_catch_exception
-   fun:_dl_catch_error
-   fun:_dlerror_run
-   fun:dlopen_implementation
-   fun:dlopen@@GLIBC_2.34
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_hashmap_put
-   fun:pa_memimport_get
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_mainloop_dispatch
-   fun:pa_mainloop_iterate
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:_XlcCreateDefaultCharSet
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLC
-   fun:_XlcUtf8Loader
-   fun:_XOpenLC
-   fun:XSetLocaleModifiers
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:malloc
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_packet_new
-   fun:pa_packet_new_data
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_pstream_send_tagstruct_with_creds
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_mainloop_dispatch
-   fun:pa_mainloop_iterate
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
    fun:_Znwm
    obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
    obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   fun:_ZN4llvm2cl6Option11addArgumentEv
    fun:_ZN4llvm2mc28RegisterMCTargetOptionsFlagsC1Ev
    fun:call_init.part.0
    fun:call_init
@@ -1972,220 +1703,7 @@
    fun:dl_open_worker
    fun:_dl_catch_exception
    fun:_dl_open
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:calloc
-   fun:_XlcCreateDefaultCharSet
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLC
-   fun:_XlcUtf8Loader
-   fun:_XOpenLC
-   fun:XSetLocaleModifiers
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:_XOpenLC
-   fun:XSetLocaleModifiers
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   fun:main
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:_XlcSetConverter
-   fun:_XlcInitCTInfo
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLC
-   fun:_XlcUtf8Loader
-   fun:_XOpenLC
-   fun:_XrmInitParseInfo
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XrmGetStringDatabase
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:calloc
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   fun:glXCreateContext
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:realloc
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   fun:_dbus_type_writer_recurse
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   fun:dbus_message_set_reply_serial
-   fun:dbus_message_new_error
-   fun:dbus_connection_send_with_reply
-   fun:dbus_connection_send_with_reply_and_block
-   fun:dbus_bus_register
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: indirect
-   fun:malloc
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:calloc
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   fun:start_thread
-   fun:clone
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:realloc
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLC
-   fun:_XlcUtf8Loader
-   fun:_XOpenLC
-   fun:XSetLocaleModifiers
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   fun:main
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:realloc
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   fun:_dbus_string_copy_len
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   fun:_dbus_message_loader_queue_messages
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   fun:dbus_pending_call_block
-   fun:dbus_connection_send_with_reply_and_block
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   fun:main
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:calloc
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   fun:_ZN4llvm13StringMapImpl11RehashTableEj
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   fun:_ZN4llvm2cl6Option11addArgumentEv
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   fun:call_init.part.0
-   fun:call_init
-   fun:_dl_init
-   fun:_dl_catch_exception
-   fun:dl_open_worker
-   fun:dl_open_worker
-   fun:_dl_catch_exception
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:malloc
-   fun:strdup
-   fun:_dl_load_cache_lookup
-   fun:_dl_map_object
-   fun:dl_open_worker_begin
-   fun:_dl_catch_exception
-   fun:dl_open_worker
-   fun:_dl_catch_exception
-   fun:_dl_open
    fun:dlopen_doit
-   fun:_dl_catch_exception
-   fun:_dl_catch_error
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: indirect
-   fun:calloc
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   fun:start_thread
 }
 {
    <insert_a_suppression_name_here>
@@ -2194,7 +1712,6 @@
    fun:_Znwm
    obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
    fun:_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
    obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
    fun:_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E
    obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
@@ -2204,189 +1721,7 @@
    fun:call_init.part.0
    fun:call_init
    fun:_dl_init
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_hashmap_put
-   fun:pa_proplist_set
-   fun:pa_tagstruct_get_proplist
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_pdispatch_run
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_mainloop_dispatch
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:_dbus_register_shutdown_func
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   fun:main
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:calloc
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:_Znwm
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   fun:_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E
-   fun:_ZN4llvm18PassManagerBuilder18addGlobalExtensionENS0_16ExtensionPointTyESt8functionIFvRKS0_RNS_6legacy15PassManagerBaseEEE
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   fun:call_init.part.0
-   fun:call_init
-   fun:_dl_init
    fun:_dl_catch_exception
-   fun:dl_open_worker
-   fun:dl_open_worker
-   fun:_dl_catch_exception
-   fun:_dl_open
-   fun:dlopen_doit
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLC
-   fun:_XlcDefaultLoader
-   fun:_XOpenLC
-   fun:_XrmInitParseInfo
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XrmGetStringDatabase
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XGetDefault
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: indirect
-   fun:malloc
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:malloc
-   fun:_dl_new_object
-   fun:_dl_map_object_from_fd
-   fun:_dl_map_object
-   fun:openaux
-   fun:_dl_catch_exception
-   fun:_dl_map_object_deps
-   fun:dl_open_worker_begin
-   fun:_dl_catch_exception
-   fun:dl_open_worker
-   fun:_dl_catch_exception
-   fun:_dl_open
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XrmInternalStringToQuark
-   fun:XrmInitialize
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XGetDefault
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   fun:main
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:_XlcSetConverter
-   fun:_XlcAddUtf8Converters
-   fun:_XlcDefaultLoader
-   fun:_XOpenLC
-   fun:_XrmInitParseInfo
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XrmGetStringDatabase
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XGetDefault
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:calloc
-   fun:pa_xmalloc0
-   fun:pa_flist_new_with_name
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_run_once
-   fun:pa_idxset_put
-   fun:pa_pstream_attach_memfd_shmid
-   fun:pa_pstream_register_memfd_mempool
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_pdispatch_run
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:calloc
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   fun:_dbus_message_loader_queue_messages
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
-   fun:dbus_pending_call_block
-   fun:dbus_connection_send_with_reply_and_block
-   fun:dbus_bus_register
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
 }
 {
    <insert_a_suppression_name_here>
@@ -2404,59 +1739,11 @@
    <insert_a_suppression_name_here>
    Memcheck:Leak
    match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_mutex_new
-   fun:pa_static_mutex_get
-   fun:pa_once_begin
-   fun:pa_run_once
-   fun:pa_tagstruct_new
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_mainloop_dispatch
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
    fun:calloc
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLC
-   fun:_XlcUtf8Loader
-   fun:_XOpenLC
-   fun:XSetLocaleModifiers
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   fun:main
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:malloc
-   fun:strdup
-   fun:_dl_map_object
-   fun:dl_open_worker_begin
-   fun:_dl_catch_exception
-   fun:dl_open_worker
-   fun:_dl_catch_exception
-   fun:_dl_open
-   fun:dlopen_doit
-   fun:_dl_catch_exception
-   fun:_dl_catch_error
-   fun:_dlerror_run
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
+   fun:pa_xmalloc0
+   fun:pa_flist_new_with_name
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_run_once
    fun:pa_idxset_put
    fun:pa_pstream_attach_memfd_shmid
    fun:pa_pstream_register_memfd_mempool
@@ -2464,98 +1751,6 @@
    obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
    fun:pa_pdispatch_run
    obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_mainloop_dispatch
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:malloc
-   fun:add_to_global_resize
-   fun:dl_open_worker_begin
-   fun:_dl_catch_exception
-   fun:dl_open_worker
-   fun:_dl_catch_exception
-   fun:_dl_open
-   fun:dlopen_doit
-   fun:_dl_catch_exception
-   fun:_dl_catch_error
-   fun:_dlerror_run
-   fun:dlopen_implementation
-   fun:dlopen@@GLIBC_2.34
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_xmemdup
-   fun:pa_flist_new_with_name
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_run_once
-   fun:pa_memimport_get
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_mainloop_dispatch
-   fun:pa_mainloop_iterate
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:_Znwm
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   fun:_ZN4llvm2cl6Option11addArgumentEv
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   fun:call_init.part.0
-   fun:call_init
-   fun:_dl_init
-   fun:_dl_catch_exception
-   fun:dl_open_worker
-   fun:dl_open_worker
-   fun:_dl_catch_exception
-   fun:_dl_open
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_tagstruct_new
-   fun:pa_pstream_register_memfd_mempool
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_pdispatch_run
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_mainloop_dispatch
-   fun:pa_mainloop_iterate
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:calloc
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:_XlcCreateLC
-   fun:_XlcDefaultLoader
-   fun:_XOpenLC
-   fun:_XrmInitParseInfo
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XrmGetStringDatabase
-   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
-   fun:XGetDefault
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
 }
 {
    <insert_a_suppression_name_here>
@@ -2586,69 +1781,16 @@
    obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
    obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
    obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
    obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
    obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_hashmap_put
-   fun:pa_proplist_sets
-   fun:pa_init_proplist
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_pdispatch_run
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_mainloop_dispatch
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_tls_new
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_run_once
-   fun:pa_cstrerror
-   fun:pa_config_parse
-   fun:pa_config_parse
-   fun:pa_client_conf_load
-   fun:pa_context_new_with_proplist
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:_Znwm
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
-   fun:call_init.part.0
-   fun:call_init
-   fun:_dl_init
-   fun:_dl_catch_exception
-   fun:dl_open_worker
-   fun:dl_open_worker
-   fun:_dl_catch_exception
-   fun:_dl_open
 }
 {
    <insert_a_suppression_name_here>
    Memcheck:Leak
    match-leak-kinds: indirect
-   fun:realloc
+   fun:malloc
    obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
    obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
    obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
@@ -2658,26 +1800,8 @@
    obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
    obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
    obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Addr8
-   fun:strncmp
-   fun:is_dst
-   fun:_dl_dst_substitute
-   fun:fillin_rpath.isra.0
-   fun:decompose_rpath
-   fun:cache_rpath
-   fun:cache_rpath
-   fun:_dl_map_object
-   fun:openaux
-   fun:_dl_catch_exception
-   fun:_dl_map_object_deps
-   fun:dl_open_worker_begin
-   fun:_dl_catch_exception
-   fun:dl_open_worker
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
 }
 {
    <insert_a_suppression_name_here>
@@ -2689,30 +1813,29 @@
    obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
    fun:pa_memimport_attach_memfd
    fun:pa_pstream_attach_memfd_shmid
-   fun:pa_common_command_register_memfd_shmid
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   fun:pa_pdispatch_run
+   fun:pa_pstream_register_memfd_mempool
    obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
    obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_pdispatch_run
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
    obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
 }
 {
    <insert_a_suppression_name_here>
    Memcheck:Leak
    match-leak-kinds: reachable
-   fun:calloc
-   fun:calloc
-   fun:_dl_new_object
-   fun:_dl_map_object_from_fd
-   fun:_dl_map_object
-   fun:openaux
-   fun:_dl_catch_exception
-   fun:_dl_map_object_deps
-   fun:dl_open_worker_begin
-   fun:_dl_catch_exception
-   fun:dl_open_worker
-   fun:_dl_catch_exception
-   fun:_dl_open
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcAddUtf8Converters
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:_XrmInitParseInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XrmGetStringDatabase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XGetDefault
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
 }
 {
    <insert_a_suppression_name_here>
@@ -2727,189 +1850,9 @@
    fun:dbus_message_new_error
    fun:dbus_connection_send_with_reply
    fun:dbus_connection_send_with_reply_and_block
-   fun:dbus_bus_register
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:calloc
-   fun:pa_xmalloc0
-   fun:pa_flist_new_with_name
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_run_once
-   fun:pa_pstream_send_packet
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_pstream_send_tagstruct_with_creds
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_mainloop_dispatch
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_mutex_new
-   fun:pa_static_mutex_get
-   fun:pa_memtrap_add
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_memimport_attach_memfd
-   fun:pa_pstream_attach_memfd_shmid
-   fun:pa_pstream_register_memfd_mempool
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_pdispatch_run
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:strdup
-   fun:_XlcCreateLC
-   fun:_XlcUtf8Loader
-   fun:_XOpenLC
-   fun:XSetLocaleModifiers
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   fun:main
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_mutex_new
-   fun:pa_static_mutex_get
-   fun:pa_once_begin
-   fun:pa_run_once
-   fun:pa_memimport_get
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_mainloop_dispatch
-   fun:pa_mainloop_iterate
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:calloc
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   fun:main
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: indirect
-   fun:malloc
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_mutex_new
-   fun:pa_static_mutex_get
-   fun:pa_once_begin
-   fun:pa_memtrap_add
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_memimport_attach_memfd
-   fun:pa_pstream_attach_memfd_shmid
-   fun:pa_pstream_register_memfd_mempool
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_memimport_get
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_mainloop_dispatch
-   fun:pa_mainloop_iterate
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   fun:main
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   fun:main
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_xmemdup
-   fun:pa_flist_new_with_name
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   fun:pa_run_once
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   fun:main
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:malloc
-   fun:pa_xmalloc
-   fun:pa_mutex_new
-   fun:pa_static_mutex_get
-   fun:pa_once_begin
-   fun:pa_run_once
-   fun:pa_pstream_send_packet
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_pstream_send_tagstruct_with_creds
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
 }
 {
    <insert_a_suppression_name_here>
@@ -2927,23 +1870,6 @@
    obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
    obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
    obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:calloc
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
-   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
 }
 {
    <insert_a_suppression_name_here>
@@ -2967,7 +1893,707 @@
    Memcheck:Leak
    match-leak-kinds: reachable
    fun:malloc
+   fun:_dbus_register_shutdown_func
+   fun:dbus_message_unref
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   fun:dbus_connection_send_with_reply_and_block
+   fun:dbus_bus_register
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_xmemdup
+   fun:pa_flist_new_with_name
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_run_once
+   fun:pa_tagstruct_new
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_mainloop_dispatch
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:calloc
+   fun:_dl_new_object
+   fun:_dl_map_object_from_fd
+   fun:_dl_map_object
+   fun:dl_open_worker_begin
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_exception
+   fun:_dl_catch_error
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:pa_xmalloc0
+   fun:pa_flist_new_with_name
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   fun:pa_run_once
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_mutex_new
+   fun:pa_static_mutex_get
+   fun:pa_once_begin
+   fun:pa_run_once
+   fun:pa_pstream_send_packet
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_pstream_send_tagstruct_with_creds
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_mutex_new
+   fun:pa_static_mutex_get
+   fun:pa_once_begin
+   fun:pa_run_once
+   fun:pa_pdispatch_register_reply
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_mainloop_dispatch
+   fun:pa_mainloop_iterate
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:pa_xmalloc0
+   fun:pa_flist_new_with_name
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_run_once
+   fun:pa_queue_push
+   fun:pa_pstream_send_packet
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_pstream_send_tagstruct_with_creds
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_memimport_get
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_mainloop_dispatch
+   fun:pa_mainloop_iterate
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   fun:start_thread
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLocaleDataBase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:pa_xmalloc0
+   fun:pa_flist_new_with_name
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_run_once
+   fun:pa_hashmap_put
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_memimport_attach_memfd
+   fun:pa_pstream_attach_memfd_shmid
+   fun:pa_pstream_register_memfd_mempool
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_xmemdup
+   fun:pa_flist_new_with_name
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_run_once
+   fun:pa_memimport_get
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_mainloop_dispatch
+   fun:pa_mainloop_iterate
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcAddLoader
+   fun:_XOpenLC
+   fun:_XrmInitParseInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XrmGetStringDatabase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XGetDefault
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:_XrmInitParseInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XrmGetStringDatabase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XGetDefault
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:malloc
+   fun:_dl_new_object
+   fun:_dl_map_object_from_fd
+   fun:_dl_map_object
+   fun:openaux
+   fun:_dl_catch_exception
+   fun:_dl_map_object_deps
+   fun:dl_open_worker_begin
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   fun:start_thread
+   fun:clone
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:pa_xmalloc0
+   fun:pa_flist_new_with_name
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_run_once
+   fun:pa_packet_new
+   fun:pa_packet_new_data
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_pstream_send_tagstruct_with_creds
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_mutex_new
+   fun:pa_static_mutex_get
+   fun:pa_once_begin
+   fun:pa_run_once
+   fun:pa_memimport_get
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_mainloop_dispatch
+   fun:pa_mainloop_iterate
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   fun:_dbus_string_copy_len
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   fun:_dbus_type_writer_write_basic
+   fun:dbus_message_iter_append_basic
+   fun:dbus_message_new_error
+   fun:dbus_connection_send_with_reply
+   fun:dbus_connection_send_with_reply_and_block
+   fun:dbus_bus_register
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   fun:_ZN4llvm2cl6Option11addArgumentEv
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:pa_xmalloc0
+   fun:pa_flist_new_with_name
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_run_once
+   fun:pa_tagstruct_new
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_mainloop_dispatch
+   fun:pa_mainloop_iterate
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   fun:_ZN4llvm2mc28RegisterMCTargetOptionsFlagsC1Ev
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XrmGetStringDatabase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XGetDefault
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr8
+   fun:strncmp
+   fun:is_dst
+   fun:_dl_dst_count
+   fun:expand_dynamic_string_token
+   fun:fillin_rpath.isra.0
+   fun:decompose_rpath
+   fun:cache_rpath
+   fun:cache_rpath
+   fun:_dl_map_object
+   fun:openaux
+   fun:_dl_catch_exception
+   fun:_dl_map_object_deps
+   fun:dl_open_worker_begin
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:_XrmInitParseInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XrmGetStringDatabase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XGetDefault
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
    fun:strdup
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:calloc
+   fun:_dl_check_map_versions
+   fun:dl_open_worker_begin
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_exception
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen_implementation
+   fun:dlopen@@GLIBC_2.34
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   fun:start_thread
+   fun:clone
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_tagstruct_new
+   fun:pa_pstream_register_memfd_mempool
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_pdispatch_run
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_mainloop_dispatch
+   fun:pa_mainloop_iterate
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XOpenLC
+   fun:_XrmInitParseInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XrmGetStringDatabase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XGetDefault
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcInitCTInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:_XrmInitParseInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XrmGetStringDatabase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcCreateDefaultCharSet
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcAddUtf8Converters
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:pa_xmalloc0
+   fun:pa_flist_new_with_name
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_run_once
+   fun:pa_memimport_get
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_mainloop_dispatch
+   fun:pa_mainloop_iterate
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcCreateLocaleDataBase
    obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
    obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
    fun:_XlcCreateLC
@@ -2985,44 +2611,143 @@
    match-leak-kinds: reachable
    fun:malloc
    fun:pa_xmalloc
+   fun:pa_pdispatch_register_reply
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_mainloop_dispatch
+   fun:pa_mainloop_iterate
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_mutex_new
+   fun:pa_static_mutex_get
+   fun:pa_memtrap_add
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_memimport_attach_memfd
+   fun:pa_pstream_attach_memfd_shmid
+   fun:pa_pstream_register_memfd_mempool
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_pdispatch_run
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
    fun:pa_packet_new
    fun:pa_packet_new_data
    obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_pstream_send_tagstruct_with_fds
+   fun:pa_pstream_register_memfd_mempool
    obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
    obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
    fun:pa_pdispatch_run
    obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
    obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
-   fun:pa_mainloop_dispatch
 }
 {
    <insert_a_suppression_name_here>
    Memcheck:Leak
    match-leak-kinds: reachable
-   fun:malloc
-   fun:malloc
-   fun:_dl_new_object
-   fun:_dl_map_object_from_fd
-   fun:_dl_map_object
-   fun:dl_open_worker_begin
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   fun:_ZN4llvm13StringMapImpl11RehashTableEj
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   fun:_ZN4llvm2cl6Option11addArgumentEv
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
    fun:_dl_catch_exception
    fun:dl_open_worker
+   fun:dl_open_worker
    fun:_dl_catch_exception
-   fun:_dl_open
-   fun:dlopen_doit
-   fun:_dl_catch_exception
-   fun:_dl_catch_error
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
 }
 {
    <insert_a_suppression_name_here>
    Memcheck:Leak
    match-leak-kinds: reachable
    fun:malloc
-   fun:_XlcDefaultMapModifiers
-   fun:XSetLocaleModifiers
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
-   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:pa_xmalloc
+   fun:pa_idxset_put
+   fun:pa_pstream_attach_memfd_shmid
+   fun:pa_common_command_register_memfd_shmid
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   fun:pa_pdispatch_run
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_mainloop_dispatch
+   fun:pa_mainloop_iterate
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   fun:_dbus_type_writer_recurse
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   fun:dbus_message_set_reply_serial
+   fun:dbus_message_new_error
+   fun:dbus_connection_send_with_reply
+   fun:dbus_connection_send_with_reply_and_block
+   fun:dbus_bus_register
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
    fun:main
@@ -3050,8 +2775,93 @@
    <insert_a_suppression_name_here>
    Memcheck:Leak
    match-leak-kinds: reachable
-   fun:malloc
+   fun:calloc
+   fun:_XlcCreateDefaultCharSet
+   fun:_XlcAddCT
+   fun:_XlcInitCTInfo
    obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:_XrmInitParseInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XrmGetStringDatabase
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLocaleDataBase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   fun:_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   fun:_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   fun:_ZN4llvm2cl18getGeneralCategoryEv
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/crocus_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_xmemdup
+   fun:pa_flist_new_with_name
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_run_once
+   fun:pa_idxset_put
+   fun:pa_pstream_attach_memfd_shmid
+   fun:pa_pstream_register_memfd_mempool
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_pdispatch_run
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
    obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
    fun:_XlcCreateLC
    fun:_XlcDefaultLoader
@@ -3062,6 +2872,24 @@
    obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
    fun:XGetDefault
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcAddCharSet
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
 }
 {
    <insert_a_suppression_name_here>
@@ -3069,12 +2897,27 @@
    match-leak-kinds: reachable
    fun:malloc
    fun:pa_xmalloc
-   fun:pa_mutex_new
-   fun:pa_static_mutex_get
-   fun:pa_once_begin
-   fun:pa_run_once
+   fun:pa_tagstruct_new
    obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
    obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_mainloop_dispatch
+   fun:pa_mainloop_iterate
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XrmInternalStringToQuark
+   fun:XrmInitialize
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XGetDefault
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
    obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
@@ -3085,16 +2928,50 @@
    Memcheck:Leak
    match-leak-kinds: reachable
    fun:malloc
+   fun:_XlcCreateDefaultCharSet
+   fun:_XlcAddCT
+   fun:_XlcInitCTInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:_XrmInitParseInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XrmGetStringDatabase
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
    fun:pa_xmalloc
-   fun:pa_mutex_new
-   fun:pa_static_mutex_get
-   fun:pa_once_begin
-   fun:pa_run_once
-   fun:pa_hashmap_put
+   fun:pa_aupdate_new
+   fun:pa_memtrap_add
    obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
    fun:pa_memimport_attach_memfd
    fun:pa_pstream_attach_memfd_shmid
    fun:pa_pstream_register_memfd_mempool
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_pdispatch_run
    obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
 }
 {
@@ -3102,6 +2979,91 @@
    Memcheck:Leak
    match-leak-kinds: reachable
    fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   fun:_dbus_string_copy_len
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   fun:_dbus_message_loader_queue_messages
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   fun:dbus_pending_call_block
+   fun:dbus_connection_send_with_reply_and_block
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   fun:_dbus_message_loader_queue_messages
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   obj:/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13
+   fun:dbus_pending_call_block
+   fun:dbus_connection_send_with_reply_and_block
+   fun:dbus_bus_register
+   obj:/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.18.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:pa_xmalloc
+   fun:pa_hashmap_put
+   fun:pa_proplist_set
+   fun:pa_tagstruct_get_proplist
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_pdispatch_run
+   obj:/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   obj:/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so
+   fun:pa_mainloop_dispatch
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:malloc
+   fun:strdup
+   fun:_dl_map_object
+   fun:dl_open_worker_begin
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_exception
+   fun:_dl_catch_error
+   fun:_dlerror_run
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
    obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
    obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
    obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
@@ -3113,4 +3075,42 @@
    fun:XrmGetStringDatabase
    obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
    fun:XGetDefault
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   fun:_ZN4llvm2cl6Option11addArgumentEv
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
 }
