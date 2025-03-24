@@ -10,12 +10,12 @@ LIBS	= $(LIB_SDL)
 SRC 	= $(shell find src -name "*.c")
 OBJECTS	= ${SRC:src/%.c=obj/%.o}
 
-$(NAME): all
+all: $(NAME)
 
 obj:
 	@mkdir -p obj
 
-all: $(OBJECTS)
+$(NAME): $(OBJECTS)
 	@printf "Compiling $(NAME)\n"
 	@$(CC) $(CFLAGS) -I $(INCLDE) $(OBJECTS) $(LIBS) -o $(NAME)
 	@printf "Done!\n"
