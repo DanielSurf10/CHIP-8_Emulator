@@ -28,6 +28,38 @@ void	draw_chip8_display(SDL_Renderer *renderer, chip8 *chip8_data) {
 	SDL_RenderPresent(renderer);
 }
 
+int	init_window(SDL_Window **window, SDL_Renderer **renderer) {
+	*window = NULL;
+	*renderer = NULL;
+
+	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
+		return (0);
+
+	*window = SDL_CreateWindow(
+		"CHIP-8 Emulator",
+		SDL_WINDOWPOS_CENTERED,
+		SDL_WINDOWPOS_CENTERED,
+		WIDTH * WINDOW_SCALE,
+		HEIGHT * WINDOW_SCALE,
+		SDL_WINDOW_SHOWN
+	);
+
+	if (*window == NULL) {
+		SDL_Quit();
+		return (0);
+	}
+
+	*renderer = SDL_CreateRenderer(*window, -1, SDL_WINDOW_SHOWN);
+	if (*renderer == NULL) {
+		SDL_DestroyWindow(*window);
+		*window = NULL;
+		SDL_Quit();
+		return (-1);
+	}
+
+	return (1);
+}
+
 int main(int argc, char *argv[]) {
 	int				running;
 
@@ -40,30 +72,8 @@ int main(int argc, char *argv[]) {
 	// 	return (1);
 	// }
 
-	if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
+	if (!init_window(&window, &renderer))
 		return (-1);
-	}
-
-	window = SDL_CreateWindow(
-		"CHIP-8 Emulator",
-		SDL_WINDOWPOS_CENTERED,
-		SDL_WINDOWPOS_CENTERED,
-		WIDTH * WINDOW_SCALE,
-		HEIGHT * WINDOW_SCALE,
-		SDL_WINDOW_SHOWN
-	);
-
-	if (!window) {
-		SDL_Quit();
-		return (-1);
-	}
-
-	renderer = SDL_CreateRenderer(window, -1, SDL_WINDOW_SHOWN);
-	if (!renderer) {
-		SDL_DestroyWindow(window);
-		SDL_Quit();
-		return (-1);
-	}
 
 	chip8_init(&chip8_data);
 
