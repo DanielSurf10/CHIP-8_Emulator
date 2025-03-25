@@ -1,7 +1,7 @@
 NAME	= chip8
 CC		= gcc
-# CFLAGS	= -Wall -Wextra -Werror -g3
-CFLAGS	= -g3
+CFLAGS	= -Wno-unused-variable -Wall -Wextra -Werror -g3
+# CFLAGS	= -g3
 INCLDE	= include
 
 LIB_SDL	= $(shell sdl2-config --cflags --libs)

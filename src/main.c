@@ -1,11 +1,8 @@
 #include "chip8.h"
 
-void	chip8_init(chip8 *chip_data)
-{
-	int	display_size = HEIGHT * WIDTH * sizeof(uint8_t);
-
-	chip_data->display = malloc(display_size);
-	bzero(chip_data->display, display_size);
+void	chip8_init(chip8 **chip8_data) {
+	*chip8_data = malloc(sizeof(chip8));
+	bzero(*chip8_data, sizeof(chip8));
 }
 
 void	draw_chip8_display(SDL_Renderer *renderer, chip8 *chip8_data) {
@@ -54,7 +51,7 @@ int	init_window(SDL_Window **window, SDL_Renderer **renderer) {
 		SDL_DestroyWindow(*window);
 		*window = NULL;
 		SDL_Quit();
-		return (-1);
+		return (0);
 	}
 
 	return (1);
@@ -65,8 +62,10 @@ int main(int argc, char *argv[]) {
 
 	SDL_Window		*window;
 	SDL_Renderer	*renderer;
-	chip8			chip8_data;
+	chip8			*chip8_data = NULL;
 
+	(void) argc;
+	(void) argv;
 	// if (argc < 2) {
 	// 	fprintf(stderr, "Usage: %s <rom>\n", argv[0]);
 	// 	return (1);
@@ -76,9 +75,9 @@ int main(int argc, char *argv[]) {
 		return (-1);
 
 	chip8_init(&chip8_data);
+	chip8_data->display[0] = 1;
 
-	chip8_data.display[2 + 2 * HEIGHT] = 1;
-	memset(chip8_data.display, 1, HEIGHT * WIDTH * sizeof(uint8_t));
+	int line = 0, column = 0;
 
 	// Loop principal
 	running = 1;
@@ -92,11 +91,24 @@ int main(int argc, char *argv[]) {
 
 		// Atualize o estado do CHIP-8 aqui
 
-		draw_chip8_display(renderer, &chip8_data);
+		if (HEIGHT <= line)
+			line = 0;
+		else if (WIDTH > column)
+			column++;
+		else
+		{
+			line++;
+			column = 0;
+		}
+
+		memset(chip8_data->display, 0, HEIGHT * WIDTH * sizeof(uint8_t));
+		chip8_data->display[column + line * WIDTH] = 1;
+
+		draw_chip8_display(renderer, chip8_data);
 		SDL_Delay(1000 / 60);
 	}
 
-	free(chip8_data.display);
+	free(chip8_data);
 
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
