@@ -1,14 +1,20 @@
 #ifndef CHIP_8
 # define CHIP_8
 
+// Includes
+
 # include <stdio.h>
 # include <stdlib.h>
 # include <SDL2/SDL.h>
 # include <stdint.h>
 
+// Defines
+
 # define WIDTH			64
 # define HEIGHT			32
 # define WINDOW_SCALE	10
+
+// Structures
 
 typedef struct chip8 {
 
