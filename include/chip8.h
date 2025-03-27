@@ -67,4 +67,8 @@ void	init_font(chip8 *chip8_data);
 void	chip8_init(chip8 **chip8_data);
 int		init_window(SDL_Window **window, SDL_Renderer **renderer);
 
+// Display functions
+void	draw_chip8_display(SDL_Renderer *renderer, chip8 *chip8_data);
+void	set_display_pixel(uint8_t *display, int x, int y, int state);
+
 #endif
