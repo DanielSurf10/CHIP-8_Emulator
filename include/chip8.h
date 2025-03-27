@@ -60,4 +60,11 @@ typedef struct chip8 {
 	uint8_t	display[WIDTH * HEIGHT];
 } chip8;
 
+// Functions
+
+// Init functions
+void	init_font(chip8 *chip8_data);
+void	chip8_init(chip8 **chip8_data);
+int		init_window(SDL_Window **window, SDL_Renderer **renderer);
+
 #endif
