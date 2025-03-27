@@ -120,9 +120,6 @@ int main(int argc, char *argv[]) {
 		return (-1);
 
 	chip8_init(&chip8_data);
-	// chip8_data->display[0] = 1;
-
-	// int line = 0, column = 0;
 	int	num = 0;
 
 	// Loop principal
@@ -135,32 +132,12 @@ int main(int argc, char *argv[]) {
 			}
 		}
 
-		// Atualize o estado do CHIP-8 aqui
-
-// 		if (HEIGHT <= line)
-// 			line = 0;
-// 		else if (WIDTH > column)
-// 			column++;
-// 		else
-// 		{
-// 			line++;
-// 			column = 0;
-// 		}
-//
-// 		memset(chip8_data->display, 0, HEIGHT * WIDTH * sizeof(uint8_t));
-// 		chip8_data->display[column + line * WIDTH] = 1;
-
 		for (int i = 0; i < 5; i++)
 		{
 			set_display_pixel(chip8_data->display, 0 + 30, i + 12, chip8_data->memory[0x50 + i + num * 5] & 0b10000000);
 			set_display_pixel(chip8_data->display, 1 + 30, i + 12, chip8_data->memory[0x50 + i + num * 5] & 0b01000000);
 			set_display_pixel(chip8_data->display, 2 + 30, i + 12, chip8_data->memory[0x50 + i + num * 5] & 0b00100000);
 			set_display_pixel(chip8_data->display, 3 + 30, i + 12, chip8_data->memory[0x50 + i + num * 5] & 0b00010000);
-
-			// chip8_data->display[(i + 12) * WIDTH + 30 + 0] = chip8_data->memory[0x50 + i + num * 5] & 0b10000000;
-			// chip8_data->display[(i + 12) * WIDTH + 30 + 1] = chip8_data->memory[0x50 + i + num * 5] & 0b01000000;
-			// chip8_data->display[(i + 12) * WIDTH + 30 + 2] = chip8_data->memory[0x50 + i + num * 5] & 0b00100000;
-			// chip8_data->display[(i + 12) * WIDTH + 30 + 3] = chip8_data->memory[0x50 + i + num * 5] & 0b00010000;
 		}
 
 		if (num == 15)
