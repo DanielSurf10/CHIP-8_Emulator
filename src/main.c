@@ -1,6 +1,6 @@
 #include "chip8.h"
 
-void	init_font(chip8 *chip_data)
+void	init_font(chip8 *chip8_data)
 {
 	// There are 16 characters (sprites) with 4 pixels width
 	// and 5 pixels height
@@ -25,14 +25,14 @@ void	init_font(chip8 *chip_data)
 		0xF0, 0x80, 0xF0, 0x80, 0x80  // F
 	};
 
-	memcpy(&chip_data->memory[font_start_address], font, font_size);
+	memcpy(&chip8_data->memory[font_start_address], font, font_size);
 }
 
 void	chip8_init(chip8 **chip8_data) {
 	*chip8_data = malloc(sizeof(chip8));
 	bzero(*chip8_data, sizeof(chip8));
-
 	init_font(*chip8_data);
+	(*chip8_data)->sp = 0;
 }
 
 void	draw_chip8_display(SDL_Renderer *renderer, chip8 *chip8_data) {
