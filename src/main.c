@@ -87,8 +87,23 @@ int	init_window(SDL_Window **window, SDL_Renderer **renderer) {
 	return (1);
 }
 
+void	set_display_pixel(uint8_t *display, int x, int y, int state) {
+
+	////////////////////////////
+	// Não sei qual precisa usar
+
+	// if (x * y > WIDTH * HEIGHT)
+	// return ;
+
+	// Vou deixar esse aqui
+	if (x >= WIDTH || y >= HEIGHT)
+		return ;
+	////////////////////////////
+
+	display[WIDTH * y + x] = state;
+}
+
 int main(int argc, char *argv[]) {
-	int				running;
 
 	SDL_Window		*window;
 	SDL_Renderer	*renderer;
@@ -111,7 +126,7 @@ int main(int argc, char *argv[]) {
 	int	num = 0;
 
 	// Loop principal
-	running = 1;
+	int	running = 1;
 	while (running) {
 		SDL_Event event;
 		while (SDL_PollEvent(&event)) {
@@ -135,18 +150,17 @@ int main(int argc, char *argv[]) {
 // 		memset(chip8_data->display, 0, HEIGHT * WIDTH * sizeof(uint8_t));
 // 		chip8_data->display[column + line * WIDTH] = 1;
 
-// 		memcpy(chip8_data->display + WIDTH * 0, chip8_data->memory + 0x50 + num * 5, 5);
-// 		memcpy(chip8_data->display + WIDTH * 1, chip8_data->memory + 0x50 + num * 5 + 5, 5);
-// 		memcpy(chip8_data->display + WIDTH * 2, chip8_data->memory + 0x50 + num * 5 + 10, 5);
-// 		memcpy(chip8_data->display + WIDTH * 3, chip8_data->memory + 0x50 + num * 5 + 11, 5);
-// 		memcpy(chip8_data->display + WIDTH * 4, chip8_data->memory + 0x50 + num * 5 + 12, 5);
-
 		for (int i = 0; i < 5; i++)
 		{
-			chip8_data->display[(i + 12) * WIDTH + 30 + 0] = chip8_data->memory[0x50 + i + num * 5] & 0b10000000;
-			chip8_data->display[(i + 12) * WIDTH + 30 + 1] = chip8_data->memory[0x50 + i + num * 5] & 0b01000000;
-			chip8_data->display[(i + 12) * WIDTH + 30 + 2] = chip8_data->memory[0x50 + i + num * 5] & 0b00100000;
-			chip8_data->display[(i + 12) * WIDTH + 30 + 3] = chip8_data->memory[0x50 + i + num * 5] & 0b00010000;
+			set_display_pixel(chip8_data->display, 0 + 30, i + 12, chip8_data->memory[0x50 + i + num * 5] & 0b10000000);
+			set_display_pixel(chip8_data->display, 1 + 30, i + 12, chip8_data->memory[0x50 + i + num * 5] & 0b01000000);
+			set_display_pixel(chip8_data->display, 2 + 30, i + 12, chip8_data->memory[0x50 + i + num * 5] & 0b00100000);
+			set_display_pixel(chip8_data->display, 3 + 30, i + 12, chip8_data->memory[0x50 + i + num * 5] & 0b00010000);
+
+			// chip8_data->display[(i + 12) * WIDTH + 30 + 0] = chip8_data->memory[0x50 + i + num * 5] & 0b10000000;
+			// chip8_data->display[(i + 12) * WIDTH + 30 + 1] = chip8_data->memory[0x50 + i + num * 5] & 0b01000000;
+			// chip8_data->display[(i + 12) * WIDTH + 30 + 2] = chip8_data->memory[0x50 + i + num * 5] & 0b00100000;
+			// chip8_data->display[(i + 12) * WIDTH + 30 + 3] = chip8_data->memory[0x50 + i + num * 5] & 0b00010000;
 		}
 
 		if (num == 15)
