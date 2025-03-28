@@ -33,6 +33,7 @@ void	chip8_init(chip8 **chip8_data) {
 	bzero(*chip8_data, sizeof(chip8));
 	init_font(*chip8_data);
 	(*chip8_data)->sp = 0;
+	(*chip8_data)->audio = audio_create(DEFAULT_FREQUENCY, DEFAULT_SAMPLE_RATE, DEFAULT_AMP);
 }
 
 int	init_window(SDL_Window **window, SDL_Renderer **renderer) {

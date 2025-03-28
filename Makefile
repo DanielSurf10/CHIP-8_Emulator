@@ -1,11 +1,10 @@
 NAME	= chip8
 CC		= gcc
-CFLAGS	= -Wno-unused-variable -Wall -Wextra -Werror -g3
-# CFLAGS	= -g3
+CFLAGS	= -Wall -Wextra -Werror -g3
 INCLDE	= include
 
 LIB_SDL	= $(shell sdl2-config --cflags --libs)
-LIBS	= $(LIB_SDL)
+LIBS	= $(LIB_SDL) -lm
 
 SRC 	= $(shell find src -name "*.c")
 OBJECTS	= ${SRC:src/%.c=obj/%.o}
@@ -20,7 +19,7 @@ $(NAME): $(OBJECTS)
 	@$(CC) $(CFLAGS) -I $(INCLDE) $(OBJECTS) $(LIBS) -o $(NAME)
 	@printf "Done!\n"
 
-obj/%.o: src/%.c obj
+obj/%.o: src/%.c | obj
 	@printf "Compiling $(notdir $<)\n"
 	@$(CC) $(CFLAGS) -I $(INCLDE) -c $< -o $@
 

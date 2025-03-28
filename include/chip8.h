@@ -7,14 +7,36 @@
 # include <stdlib.h>
 # include <SDL2/SDL.h>
 # include <stdint.h>
+# include <math.h>
 
 // Defines
 
 # define WIDTH			64
 # define HEIGHT			32
 # define WINDOW_SCALE	10
+# define DEFAULT_FPS	60
+
+# define MEMORY_SIZE		4096
+# define PC_START			0x200
+
+# define DEFAULT_FREQUENCY		500
+# define DEFAULT_SAMPLE_RATE	44100
+# define DEFAULT_AMP			28000
+# define DEFAULT_INTERVAL		(1000 / DEFAULT_FPS)
+# define SOUND_CLOCK			(1000 / 60)
 
 // Structures
+
+typedef struct {
+	int32_t	sample_rate;
+	int32_t	frequency;
+	int32_t	amplitude;
+	int32_t	sample_index;
+
+	SDL_AudioSpec		have;
+	SDL_AudioSpec		want;
+	SDL_AudioDeviceID	device;
+}	Audio;
 
 typedef struct chip8 {
 
@@ -35,7 +57,7 @@ typedef struct chip8 {
 	|  interpreter   |
 	+----------------+= 0x000 (0) Start of Chip-8 RAM
 	*/
-	uint8_t	memory[4096];
+	uint8_t	memory[MEMORY_SIZE];
 
 	// 16 general purpose 8-bit registers
 	uint8_t	V[16];
@@ -58,7 +80,10 @@ typedef struct chip8 {
 
 	// Display
 	uint8_t	display[WIDTH * HEIGHT];
-} chip8;
+
+	// Sound
+	Audio	*audio;
+}	chip8;
 
 // Functions
 
@@ -70,5 +95,10 @@ int		init_window(SDL_Window **window, SDL_Renderer **renderer);
 // Display functions
 void	draw_chip8_display(SDL_Renderer *renderer, chip8 *chip8_data);
 void	set_display_pixel(uint8_t *display, int x, int y, int state);
+
+Audio	*audio_create(int32_t freq, int32_t rate, int32_t amp);
+void	audio_play(Audio *audio);
+void	audio_stop(Audio *audio);
+void	audio_destroy(Audio *audio);
 
 #endif

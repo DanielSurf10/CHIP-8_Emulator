@@ -4,7 +4,12 @@ void	update_timers(chip8 *chip8_data) {
 	if (chip8_data->delay_timer > 1)
 		chip8_data->delay_timer--;
 	if (chip8_data->sound_timer > 1)
+	{
 		chip8_data->sound_timer--;
+		audio_play(chip8_data->audio);
+	}
+	else
+		audio_stop(chip8_data->audio);
 }
 
 int main(int argc, char *argv[]) {
@@ -21,10 +26,11 @@ int main(int argc, char *argv[]) {
 	// }
 
 	if (!init_window(&window, &renderer))
-		return (-1);
+		return (1);
 
 	chip8_init(&chip8_data);
-	int	num = 0;
+	int	num = 0, sec_count = 0;
+	chip8_data->sound_timer = 75;
 
 	// Loop principal
 	int	running = 1;
@@ -46,16 +52,22 @@ int main(int argc, char *argv[]) {
 			set_display_pixel(chip8_data->display, 3 + 30, i + 12, chip8_data->memory[0x50 + i + num * 5] & 0b00010000);
 		}
 
+		sec_count++;
 
-		if (num == 15)
-			num = 0;
-		else
-			num++;
+		if (sec_count >= 60)
+		{
+			if (num == 15)
+				num = 0;
+			else
+				num++;
+			sec_count = 0;
+		}
 
 		draw_chip8_display(renderer, chip8_data);
-		SDL_Delay(1000 / 2);
+		SDL_Delay(1000 / DEFAULT_FPS);
 	}
 
+	audio_destroy(chip8_data->audio);
 	free(chip8_data);
 
 	SDL_DestroyRenderer(renderer);
