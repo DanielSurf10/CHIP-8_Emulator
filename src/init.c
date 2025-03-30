@@ -28,14 +28,20 @@ void	init_font(chip8 *chip8_data)
 	memcpy(&chip8_data->memory[font_start_address], font, font_size);
 }
 
-chip8	*chip8_init(void) {
+chip8	*chip8_init(char *path_to_rom) {
 	chip8	*chip8_data = malloc(sizeof(chip8));
 
 	bzero(chip8_data, sizeof(chip8));
 	init_font(chip8_data);
 	chip8_data->sp = 0;
 	chip8_data->pc = PC_START;
-	chip8_data->audio = audio_create(DEFAULT_FREQUENCY, DEFAULT_SAMPLE_RATE, DEFAULT_AMP);
+
+	int	status = read_rom(path_to_rom, chip8_data->memory);
+	if (status == 0)
+	{
+		free(chip8_data);
+		return (NULL);
+	}
 
 	return (chip8_data);
 }

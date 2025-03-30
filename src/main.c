@@ -20,15 +20,21 @@ int main(int argc, char *argv[]) {
 
 	(void) argc;
 	(void) argv;
-	// if (argc < 2) {
-	// 	fprintf(stderr, "Usage: %s <rom>\n", argv[0]);
-	// 	return (1);
-	// }
+	if (argc < 2) {
+		fprintf(stderr, "Usage: %s <rom>\n", argv[0]);
+		return (1);
+	}
 
-	if (!init_window(&window, &renderer))
+	chip8_data = chip8_init(argv[1]);
+
+	if (!chip8_data || !init_window(&window, &renderer))
 		return (1);
 
-	chip8_data = chip8_init();
+
+	// Verificar se o audio funcionou
+	chip8_data->audio = audio_create(DEFAULT_FREQUENCY, DEFAULT_SAMPLE_RATE, DEFAULT_AMP);
+
+	
 	// int	num = 0, sec_count = 0;
 	// chip8_data->sound_timer = 75;
 

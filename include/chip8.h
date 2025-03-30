@@ -8,6 +8,8 @@
 # include <SDL2/SDL.h>
 # include <stdint.h>
 # include <math.h>
+# include <sys/stat.h>
+# include <unistd.h>
 
 // Defines
 
@@ -18,6 +20,7 @@
 
 # define MEMORY_SIZE		4096
 # define PC_START			0x200
+# define ROM_SIZE			MEMORY_SIZE - PC_START
 
 # define DEFAULT_FREQUENCY		500
 # define DEFAULT_SAMPLE_RATE	44100
@@ -88,14 +91,16 @@ typedef struct chip8 {
 // Functions
 
 // Init functions
-chip8	*chip8_init(void);
+chip8	*chip8_init(char *path_to_rom);
 void	init_font(chip8 *chip8_data);
 int		init_window(SDL_Window **window, SDL_Renderer **renderer);
+int		read_rom(char *path_to_rom, uint8_t *memory);
 
 // Display functions
 void	draw_chip8_display(SDL_Renderer *renderer, chip8 *chip8_data);
 void	set_display_pixel(uint8_t *display, int x, int y, int state);
 
+// Audio functions
 Audio	*audio_create(int32_t freq, int32_t rate, int32_t amp);
 void	audio_play(Audio *audio);
 void	audio_stop(Audio *audio);
