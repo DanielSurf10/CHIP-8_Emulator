@@ -35,3 +35,11 @@ void	set_display_pixel(uint8_t *display, int x, int y, int state) {
 
 	display[WIDTH * y + x] = state;
 }
+
+// for (int i = 0; i < 5; i++)
+// {
+// 	set_display_pixel(chip8_data->display, 0 + 30, i + 12, chip8_data->memory[0x50 + i + num * 5] & 0b10000000);
+// 	set_display_pixel(chip8_data->display, 1 + 30, i + 12, chip8_data->memory[0x50 + i + num * 5] & 0b01000000);
+// 	set_display_pixel(chip8_data->display, 2 + 30, i + 12, chip8_data->memory[0x50 + i + num * 5] & 0b00100000);
+// 	set_display_pixel(chip8_data->display, 3 + 30, i + 12, chip8_data->memory[0x50 + i + num * 5] & 0b00010000);
+// }

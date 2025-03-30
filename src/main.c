@@ -34,13 +34,15 @@ int main(int argc, char *argv[]) {
 	// Verificar se o audio funcionou
 	chip8_data->audio = audio_create(DEFAULT_FREQUENCY, DEFAULT_SAMPLE_RATE, DEFAULT_AMP);
 
-	
-	// int	num = 0, sec_count = 0;
-	// chip8_data->sound_timer = 75;
+	chip8_data->sound_timer = 60;
 
 	// Loop principal
 	int	running = 1;
+	int last_instruction_time = SDL_GetTicks();
+
 	while (running) {
+		int current_time = SDL_GetTicks();
+
 		SDL_Event event;
 		while (SDL_PollEvent(&event)) {
 			if (event.type == SDL_QUIT) {
@@ -48,29 +50,14 @@ int main(int argc, char *argv[]) {
 			}
 		}
 
-		update_timers(chip8_data);
+		if ((current_time - last_instruction_time) > 1000 / INSTRUCTIONS_PER_SECOND)
+		{
+			draw_chip8_display(renderer, chip8_data);
+			update_timers(chip8_data);
+			last_instruction_time = current_time;
+		}
 
-		// for (int i = 0; i < 5; i++)
-		// {
-		// 	set_display_pixel(chip8_data->display, 0 + 30, i + 12, chip8_data->memory[0x50 + i + num * 5] & 0b10000000);
-		// 	set_display_pixel(chip8_data->display, 1 + 30, i + 12, chip8_data->memory[0x50 + i + num * 5] & 0b01000000);
-		// 	set_display_pixel(chip8_data->display, 2 + 30, i + 12, chip8_data->memory[0x50 + i + num * 5] & 0b00100000);
-		// 	set_display_pixel(chip8_data->display, 3 + 30, i + 12, chip8_data->memory[0x50 + i + num * 5] & 0b00010000);
-		// }
-
-// 		sec_count++;
-//
-// 		if (sec_count >= 60)
-// 		{
-// 			if (num == 15)
-// 				num = 0;
-// 			else
-// 				num++;
-// 			sec_count = 0;
-// 		}
-
-		draw_chip8_display(renderer, chip8_data);
-		SDL_Delay(1000 / DEFAULT_FPS);
+		SDL_Delay(1000 / INSTRUCTIONS_PER_SECOND);
 	}
 
 	audio_destroy(chip8_data->audio);

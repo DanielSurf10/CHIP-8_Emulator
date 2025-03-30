@@ -13,20 +13,21 @@
 
 // Defines
 
-# define WIDTH			64
-# define HEIGHT			32
-# define WINDOW_SCALE	10
-# define DEFAULT_FPS	60
+# define WIDTH						64
+# define HEIGHT						32
+# define WINDOW_SCALE				10
+# define DEFAULT_FPS				60
+# define INSTRUCTIONS_PER_SECOND	700
 
-# define MEMORY_SIZE		4096
-# define PC_START			0x200
-# define ROM_SIZE			MEMORY_SIZE - PC_START
+# define MEMORY_SIZE				4096
+# define PC_START					0x200
+# define ROM_SIZE					MEMORY_SIZE - PC_START
 
-# define DEFAULT_FREQUENCY		500
-# define DEFAULT_SAMPLE_RATE	44100
-# define DEFAULT_AMP			28000
-# define DEFAULT_INTERVAL		(1000 / DEFAULT_FPS)
-# define SOUND_CLOCK			(1000 / 60)
+# define DEFAULT_FREQUENCY			500
+# define DEFAULT_SAMPLE_RATE		44100
+# define DEFAULT_AMP				28000
+# define DEFAULT_INTERVAL			(1000 / DEFAULT_FPS)
+# define SOUND_CLOCK				(1000 / 60)
 
 // Structures
 
