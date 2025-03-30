@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
 			}
 		}
 
-		if ((current_time - last_instruction_time) > 1000 / INSTRUCTIONS_PER_SECOND)
+		if ((current_time - last_instruction_time) > 1000 / DEFAULT_FPS)
 		{
 			draw_chip8_display(renderer, chip8_data);
 			update_timers(chip8_data);
