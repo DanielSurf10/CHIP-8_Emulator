@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
 
 	SDL_Window		*window;
 	SDL_Renderer	*renderer;
-	chip8			*chip8_data = NULL;
+	chip8			*chip8_data;
 
 	(void) argc;
 	(void) argv;
@@ -28,9 +28,9 @@ int main(int argc, char *argv[]) {
 	if (!init_window(&window, &renderer))
 		return (1);
 
-	chip8_init(&chip8_data);
-	int	num = 0, sec_count = 0;
-	chip8_data->sound_timer = 75;
+	chip8_data = chip8_init();
+	// int	num = 0, sec_count = 0;
+	// chip8_data->sound_timer = 75;
 
 	// Loop principal
 	int	running = 1;
@@ -44,24 +44,24 @@ int main(int argc, char *argv[]) {
 
 		update_timers(chip8_data);
 
-		for (int i = 0; i < 5; i++)
-		{
-			set_display_pixel(chip8_data->display, 0 + 30, i + 12, chip8_data->memory[0x50 + i + num * 5] & 0b10000000);
-			set_display_pixel(chip8_data->display, 1 + 30, i + 12, chip8_data->memory[0x50 + i + num * 5] & 0b01000000);
-			set_display_pixel(chip8_data->display, 2 + 30, i + 12, chip8_data->memory[0x50 + i + num * 5] & 0b00100000);
-			set_display_pixel(chip8_data->display, 3 + 30, i + 12, chip8_data->memory[0x50 + i + num * 5] & 0b00010000);
-		}
+		// for (int i = 0; i < 5; i++)
+		// {
+		// 	set_display_pixel(chip8_data->display, 0 + 30, i + 12, chip8_data->memory[0x50 + i + num * 5] & 0b10000000);
+		// 	set_display_pixel(chip8_data->display, 1 + 30, i + 12, chip8_data->memory[0x50 + i + num * 5] & 0b01000000);
+		// 	set_display_pixel(chip8_data->display, 2 + 30, i + 12, chip8_data->memory[0x50 + i + num * 5] & 0b00100000);
+		// 	set_display_pixel(chip8_data->display, 3 + 30, i + 12, chip8_data->memory[0x50 + i + num * 5] & 0b00010000);
+		// }
 
-		sec_count++;
-
-		if (sec_count >= 60)
-		{
-			if (num == 15)
-				num = 0;
-			else
-				num++;
-			sec_count = 0;
-		}
+// 		sec_count++;
+//
+// 		if (sec_count >= 60)
+// 		{
+// 			if (num == 15)
+// 				num = 0;
+// 			else
+// 				num++;
+// 			sec_count = 0;
+// 		}
 
 		draw_chip8_display(renderer, chip8_data);
 		SDL_Delay(1000 / DEFAULT_FPS);

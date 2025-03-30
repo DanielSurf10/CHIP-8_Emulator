@@ -28,12 +28,16 @@ void	init_font(chip8 *chip8_data)
 	memcpy(&chip8_data->memory[font_start_address], font, font_size);
 }
 
-void	chip8_init(chip8 **chip8_data) {
-	*chip8_data = malloc(sizeof(chip8));
-	bzero(*chip8_data, sizeof(chip8));
-	init_font(*chip8_data);
-	(*chip8_data)->sp = 0;
-	(*chip8_data)->audio = audio_create(DEFAULT_FREQUENCY, DEFAULT_SAMPLE_RATE, DEFAULT_AMP);
+chip8	*chip8_init(void) {
+	chip8	*chip8_data = malloc(sizeof(chip8));
+
+	bzero(chip8_data, sizeof(chip8));
+	init_font(chip8_data);
+	chip8_data->sp = 0;
+	chip8_data->pc = PC_START;
+	chip8_data->audio = audio_create(DEFAULT_FREQUENCY, DEFAULT_SAMPLE_RATE, DEFAULT_AMP);
+
+	return (chip8_data);
 }
 
 int	init_window(SDL_Window **window, SDL_Renderer **renderer) {
