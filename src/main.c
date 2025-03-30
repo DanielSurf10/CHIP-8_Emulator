@@ -1,9 +1,9 @@
 #include "chip8.h"
 
 void	update_timers(chip8 *chip8_data) {
-	if (chip8_data->delay_timer > 1)
+	if (chip8_data->delay_timer > 0)
 		chip8_data->delay_timer--;
-	if (chip8_data->sound_timer > 1)
+	if (chip8_data->sound_timer > 0)
 	{
 		chip8_data->sound_timer--;
 		audio_play(chip8_data->audio);
