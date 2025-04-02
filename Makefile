@@ -19,7 +19,7 @@ $(NAME): $(OBJECTS)
 	@$(CC) $(CFLAGS) -I $(INCLDE) $(OBJECTS) $(LIBS) -o $(NAME)
 	@printf "Done!\n"
 
-obj/%.o: src/%.c | obj
+obj/%.o: src/%.c include/chip8.h | obj
 	@printf "Compiling $(notdir $<)\n"
 	@$(CC) $(CFLAGS) -I $(INCLDE) -c $< -o $@
 
