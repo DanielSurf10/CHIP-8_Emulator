@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
 	// Verificar se o audio funcionou
 	chip8_data->audio = audio_create(DEFAULT_FREQUENCY, DEFAULT_SAMPLE_RATE, DEFAULT_AMP);
 
-	chip8_data->sound_timer = 60;
+	// chip8_data->sound_timer = 60;
 
 	// Loop principal
 	int	running = 1;
@@ -56,6 +56,8 @@ int main(int argc, char *argv[]) {
 			update_timers(chip8_data);
 			last_instruction_time = current_time;
 		}
+
+		cycle(chip8_data);
 
 		SDL_Delay(1000 / INSTRUCTIONS_PER_SECOND);
 	}

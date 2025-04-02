@@ -92,19 +92,39 @@ typedef struct chip8 {
 // Functions
 
 // Init functions
-chip8	*chip8_init(char *path_to_rom);
-void	init_font(chip8 *chip8_data);
-int		init_window(SDL_Window **window, SDL_Renderer **renderer);
-int		read_rom(char *path_to_rom, uint8_t *memory);
+chip8		*chip8_init(char *path_to_rom);
+void		init_font(chip8 *chip8_data);
+int			init_window(SDL_Window **window, SDL_Renderer **renderer);
+int			read_rom(char *path_to_rom, uint8_t *memory);
 
 // Display functions
-void	draw_chip8_display(SDL_Renderer *renderer, chip8 *chip8_data);
-void	set_display_pixel(uint8_t *display, int x, int y, int state);
+void		draw_chip8_display(SDL_Renderer *renderer, chip8 *chip8_data);
+void		set_display_pixel(uint8_t *display, int x, int y, int state);
+uint8_t		get_display_pixel(uint8_t *display, int x, int y);
 
 // Audio functions
-Audio	*audio_create(int32_t freq, int32_t rate, int32_t amp);
-void	audio_play(Audio *audio);
-void	audio_stop(Audio *audio);
-void	audio_destroy(Audio *audio);
+Audio		*audio_create(int32_t freq, int32_t rate, int32_t amp);
+void		audio_play(Audio *audio);
+void		audio_stop(Audio *audio);
+void		audio_destroy(Audio *audio);
+
+// CPU functions
+void		cycle(chip8 *chip8_data);
+uint16_t	fetch(chip8 *chip8_data);
+void		execute(chip8 *chip8_data, uint16_t opcode);
+
+void	opcode_0(chip8 *chip8_data, uint16_t opcode);
+void	opcode_1(chip8 *chip8_data, uint16_t opcode);
+void	opcode_6(chip8 *chip8_data, uint16_t opcode);
+void	opcode_7(chip8 *chip8_data, uint16_t opcode);
+void	opcode_A(chip8 *chip8_data, uint16_t opcode);
+void	opcode_D(chip8 *chip8_data, uint16_t opcode);
+
+void	clear_screen(chip8 *chip8_data);
+void	jump(chip8 *chip8_data, uint16_t location);
+void	set_register_vx(chip8 *chip8_data, uint8_t register_v, uint8_t value);
+void	add_value_to_register_vx(chip8 *chip8_data, uint8_t register_v, uint8_t value);
+void	set_index_register_I(chip8 *chip8_data, uint16_t value);
+void	draw_sprite_xor(chip8 *chip8_data, uint8_t register_vx, uint8_t register_vy, uint8_t sprite_height);
 
 #endif
