@@ -111,7 +111,7 @@ void		audio_destroy(Audio *audio);
 // CPU functions
 void		cycle(chip8 *chip8_data);
 uint16_t	fetch(chip8 *chip8_data);
-void		execute(chip8 *chip8_data, uint16_t opcode);
+void		decode_and_execute(chip8 *chip8_data, uint16_t opcode);
 
 void	opcode_0(chip8 *chip8_data, uint16_t opcode);
 void	opcode_1(chip8 *chip8_data, uint16_t opcode);
