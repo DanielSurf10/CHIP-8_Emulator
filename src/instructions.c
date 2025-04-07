@@ -17,7 +17,32 @@ void	clear_screen(chip8 *chip8_data) {
 }
 
 /**
- * @brief 1nnn - Sets the PC to the address nnn
+ * @brief 00EE - RET - Return from a subroutine
+ *
+ * This instruction is used to return from a subroutine. It pops the
+ * address from the top of the stack and sets the program counter (PC)
+ * to that address. The stack pointer (SP) is decremented to reflect
+ * the removal of the address from the stack.
+ *
+ * Instruction: 00EE
+ * - Decrements the stack pointer (SP).
+ * - Sets the program counter (PC) to the address stored at the top of the stack.
+ *
+ * @param chip8_data Pointer to the CHIP-8 emulator state structure.
+ *
+ * @note Ensure that the stack is not empty before calling this function
+ *       to avoid stack underflow errors.
+ */
+void	ret(chip8 *chip8_data) {
+	// Verificar se a stack está vazia
+	// Tratar esse erro
+
+	chip8_data->sp -= 1;
+	chip8_data->pc = chip8_data->stack[chip8_data->sp];
+}
+
+/**
+ * @brief 1nnn - JP addr - Sets the PC to the address nnn
  *
  * This instruction performs a jump operation by setting the program counter (PC)
  * to the address nnn (specified by `location`). This effectively
@@ -31,7 +56,30 @@ void	jump(chip8 *chip8_data, uint16_t location) {
 }
 
 /**
- * @brief 6xkk - Sets Vx to the immediate value kk
+ * @brief 2nnn - CALL addr - Call subroutine at nnn
+ *
+ * This function handles the 2nnn instruction, which is used to call a subroutine
+ * located at the specified memory address (nnn). The current program counter (PC)
+ * is pushed onto the stack before jumping to the subroutine, allowing the program
+ * to return to the calling location later.
+ *
+ * @param chip8_data Pointer to the CHIP-8 emulator state structure.
+ * @param location The memory address (nnn) of the subroutine to call.
+ *
+ * @note Ensure that the stack is not full before calling this function to avoid
+ *       stack overflow.
+ */
+void	call(chip8 *chip8_data, uint16_t location) {
+	// Verificaar se a pilha estiver cheio
+	// Tratar esse erro - stack overflow
+
+	chip8_data->stack[chip8_data->sp] = chip8_data->pc;
+	chip8_data->sp += 1;
+	chip8_data->pc = location;
+}
+
+/**
+ * @brief 6xkk - LD Vx, byte - Sets Vx to the immediate value kk
  *
  * This function sets the value of the register Vx (specified by `register_v`)
  * to the immediate value `kk` (specified by `value`).

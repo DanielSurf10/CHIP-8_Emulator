@@ -6,9 +6,9 @@ void	opcode_0(chip8 *chip8_data, uint16_t opcode) {
 		clear_screen(chip8_data);
 		break;
 
-	// case 0x0EE:
-	// 	ret(chip8_data);
-	// 	break;
+	case 0x0EE:
+		ret(chip8_data);
+		break;
 
 	default:
 		break;
@@ -17,6 +17,10 @@ void	opcode_0(chip8 *chip8_data, uint16_t opcode) {
 
 void	opcode_1(chip8 *chip8_data, uint16_t opcode) {
 	jump(chip8_data, opcode & 0x0FFF);
+}
+
+void	opcode_2(chip8 *chip8_data, uint16_t opcode) {
+	call(chip8_data, opcode & 0x0FFF);
 }
 
 void	opcode_6(chip8 *chip8_data, uint16_t opcode) {
