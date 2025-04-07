@@ -1,7 +1,7 @@
 #include "chip8.h"
 
 /**
- * @brief 00E0 - Clears the display by setting all pixels to the "off" state
+ * @brief 00E0 - CLS - Clears the display by setting all pixels to the "off" state
  *
  * The 00E0 instruction is used to clear the screen.
  * When executed, it resets the entire display memory,
@@ -49,7 +49,8 @@ void	ret(chip8 *chip8_data) {
  * transfers control to the specified memory location.
  *
  * @param chip8_data Pointer to the CHIP-8 emulator state.
- * @param nnn The 12-bit address to jump to (specified by the lower 12 bits of the instruction).
+ * @param nnn The 12-bit address to jump to
+ *            (specified by the lower 12 bits of the instruction).
  */
 void	jump(chip8 *chip8_data, uint16_t location) {
 	chip8_data->pc = location;
@@ -93,7 +94,7 @@ void	set_register_vx(chip8 *chip8_data, uint8_t register_v, uint8_t value) {
 }
 
 /**
- * @brief 7xkk - ADD Vx, kk
+ * @brief 7xkk - ADD Vx, byte - ADD Vx, kk
  *
  * Adds the immediate value `kk` (specified by `value`) to the value in
  * register Vx (specified by `register_v`) and stores the result back in Vx.
@@ -108,7 +109,7 @@ void	add_value_to_register_vx(chip8 *chip8_data, uint8_t register_v, uint8_t val
 }
 
 /**
- * @brief Ann - Sets the index register (I) to the immediate value (kk)
+ * @brief Ann - LD I, addr - Sets the index register (I) to the immediate value (kk)
  *
  * Sets the index register (I) to the specified 12-bit address.
  *
@@ -124,7 +125,7 @@ void	set_index_register_I(chip8 *chip8_data, uint16_t value) {
 }
 
 /**
- * @brief Dxyn - Display n-byte sprite starting at memory location I at (Vx, Vy)
+ * @brief Dxyn - DRW Vx, Vy, nibble - Display n-byte sprite starting at memory location I at (Vx, Vy)
  *
  * This function draws a sprite at the coordinates specified by the registers
  * Vx and Vy. The sprite is `sprite_height` bytes tall and always 8 pixels wide.
