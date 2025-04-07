@@ -15,4 +15,17 @@ def write_integer_as_binary(file_name, number, byte_order="big"):
         file.write(number.to_bytes(num_bytes, byteorder=byte_order))
 
 
-write_integer_as_binary("teste", 0xA050D005A0501202)
+write_integer_as_binary("teste", 0x650422061204220C750100EE750300EE)
+
+# Assembly				| Opcode (hex)
+
+# LD	V5 4	0x200	| 6504
+# CALL	func	0x202	| 2206
+# JP	0x204	0x204	| 1204
+# func:					|
+# CALL	outra	0x206	| 220C
+# ADD	V5 1	0x208	| 7501
+# RET			0x20A	| 00EE
+# outra:				|
+# ADD	V5 3	0x20C	| 7503
+# RET			0x20E	| 00EE
