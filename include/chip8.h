@@ -116,8 +116,12 @@ void		decode_and_execute(chip8 *chip8_data, uint16_t opcode);
 void	opcode_0(chip8 *chip8_data, uint16_t opcode);
 void	opcode_1(chip8 *chip8_data, uint16_t opcode);
 void	opcode_2(chip8 *chip8_data, uint16_t opcode);
+void	opcode_3(chip8 *chip8_data, uint16_t opcode);
+void	opcode_4(chip8 *chip8_data, uint16_t opcode);
+void	opcode_5(chip8 *chip8_data, uint16_t opcode);
 void	opcode_6(chip8 *chip8_data, uint16_t opcode);
 void	opcode_7(chip8 *chip8_data, uint16_t opcode);
+void	opcode_9(chip8 *chip8_data, uint16_t opcode);
 void	opcode_A(chip8 *chip8_data, uint16_t opcode);
 void	opcode_D(chip8 *chip8_data, uint16_t opcode);
 
@@ -125,8 +129,12 @@ void	clear_screen(chip8 *chip8_data);
 void	ret(chip8 *chip8_data);
 void	jump(chip8 *chip8_data, uint16_t location);
 void	call(chip8 *chip8_data, uint16_t location);
+void	skip_equal(chip8 *chip8_data, uint8_t register_v, uint8_t value);
+void	skip_not_equal(chip8 *chip8_data, uint8_t register_v, uint8_t value);
+void	skip_equal_register(chip8 *chip8_data, uint8_t register_vx, uint8_t register_vy);
 void	set_register_vx(chip8 *chip8_data, uint8_t register_v, uint8_t value);
 void	add_value_to_register_vx(chip8 *chip8_data, uint8_t register_v, uint8_t value);
+void	skip_not_equal_register(chip8 *chip8_data, uint8_t register_vx, uint8_t register_vy);
 void	set_index_register_I(chip8 *chip8_data, uint16_t value);
 void	draw_sprite_xor(chip8 *chip8_data, uint8_t register_vx, uint8_t register_vy, uint8_t sprite_height);
 

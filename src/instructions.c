@@ -80,6 +80,55 @@ void	call(chip8 *chip8_data, uint16_t location) {
 }
 
 /**
+ * @brief 3xkk - SE Vx, byte - Skip next instruction if Vx is equal to kk
+ *
+ * Checks if the value in register `Vx` (indicated by `register_v`) is equal
+ * to the immediate value `kk` (provided as `value`). If true, it
+ * increments the program counter (pc) by 2, skipping the next instruction.
+ *
+ * @param chip8_data Pointer to the CHIP-8 emulator state structure.
+ * @param register_v The index of the V register to compare (0x0 to 0xF).
+ * @param value The immediate value (kk) to compare against the register.
+ */
+void	skip_equal(chip8 *chip8_data, uint8_t register_v, uint8_t value) {
+	if (chip8_data->V[register_v] == value)
+		chip8_data->pc += 2;
+}
+
+/**
+ * @brief 4xkk - SNE Vx, byte - Skip next instruction if Vx is not equal to kk
+ *
+ * Checks if the value in register `Vx` (indicated by `register_v`) is not
+ * equal to the immediate value `kk` (provided as `value`). If true, it
+ * increments the program counter (pc) by 2, skipping the next instruction.
+ *
+ * @param chip8_data Pointer to the CHIP-8 emulator state structure.
+ * @param register_v The index of the register Vx to compare (0x0 to 0xF).
+ * @param value The immediate value (kk) to compare against.
+ */
+void	skip_not_equal(chip8 *chip8_data, uint8_t register_v, uint8_t value) {
+	if (chip8_data->V[register_v] != value)
+		chip8_data->pc += 2;
+}
+
+/**
+ * @brief 5xy0 - SE Vx, Vy - Skip the next instruction if Vx is equal to Vy.
+ *
+ * This function checks if the values stored in the registers `Vx` and `Vy`
+ * (specified by `register_vx` and `register_vy`) are equal. If they are
+ * equal, the program counter (pc) is incremented by 2, effectively
+ * skipping the next instruction in memory.
+ *
+ * @param chip8_data Pointer to the CHIP-8 emulator state structure.
+ * @param register_vx The index of the Vx register to compare.
+ * @param register_vy The index of the Vy register to compare.
+ */
+void	skip_equal_register(chip8 *chip8_data, uint8_t register_vx, uint8_t register_vy) {
+	if (chip8_data->V[register_vx] == chip8_data->V[register_vy])
+		chip8_data->pc += 2;
+}
+
+/**
  * @brief 6xkk - LD Vx, byte - Sets Vx to the immediate value kk
  *
  * This function sets the value of the register Vx (specified by `register_v`)
@@ -106,6 +155,23 @@ void	set_register_vx(chip8 *chip8_data, uint8_t register_v, uint8_t value) {
  */
 void	add_value_to_register_vx(chip8 *chip8_data, uint8_t register_v, uint8_t value) {
 	chip8_data->V[register_v] = chip8_data->V[register_v] + value;
+}
+
+/**
+ * @brief 9xy0 - SNE Vx, Vy - Skip the next instruction if Vx is equal to Vy.
+ *
+ * This function checks if the values stored in the registers `Vx` and `Vy`
+ * (specified by `register_vx` and `register_vy`) are not equal. If they are
+ * different, the program counter (pc) is incremented by 2, effectively
+ * skipping the next instruction in memory.
+ *
+ * @param chip8_data Pointer to the CHIP-8 emulator state structure.
+ * @param register_vx Index of the Vx register to compare.
+ * @param register_vy Index of the Vy register to compare.
+ */
+void	skip_not_equal_register(chip8 *chip8_data, uint8_t register_vx, uint8_t register_vy) {
+	if (chip8_data->V[register_vx] != chip8_data->V[register_vy])
+		chip8_data->pc += 2;
 }
 
 /**

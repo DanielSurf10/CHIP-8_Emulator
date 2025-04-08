@@ -23,12 +23,38 @@ void	opcode_2(chip8 *chip8_data, uint16_t opcode) {
 	call(chip8_data, opcode & 0x0FFF);
 }
 
+void	opcode_3(chip8 *chip8_data, uint16_t opcode) {
+	skip_equal(chip8_data, (opcode >> 8) & 0xF, opcode & 0xFF);
+}
+
+void	opcode_4(chip8 *chip8_data, uint16_t opcode) {
+	skip_not_equal(chip8_data, (opcode >> 8) & 0xF, opcode & 0xFF);
+}
+
+void	opcode_5(chip8 *chip8_data, uint16_t opcode) {
+	// Tratar o último nibble caso não seja 0
+	// Algo parecido com isso
+	// if (opcode & 0xF != 0)
+	// 	return;
+
+	skip_equal_register(chip8_data, (opcode >> 8) & 0xF, (opcode >> 4) & 0xF);
+}
+
 void	opcode_6(chip8 *chip8_data, uint16_t opcode) {
 	set_register_vx(chip8_data, (opcode >> 8) & 0xF, opcode & 0xFF);
 }
 
 void	opcode_7(chip8 *chip8_data, uint16_t opcode) {
 	add_value_to_register_vx(chip8_data, (opcode >> 8) & 0xF, opcode & 0xFF);
+}
+
+void	opcode_9(chip8 *chip8_data, uint16_t opcode) {
+	// Tratar o último nibble caso não seja 0
+	// Algo parecido com isso
+	// if (opcode & 0xF != 0)
+	// 	return;
+
+	skip_not_equal_register(chip8_data, (opcode >> 8) & 0xF, (opcode >> 4) & 0xF);
 }
 
 void	opcode_A(chip8 *chip8_data, uint16_t opcode) {
