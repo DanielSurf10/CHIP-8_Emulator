@@ -44,9 +44,8 @@ void	ret(chip8 *chip8_data) {
 /**
  * @brief 1nnn - JP addr - Sets the PC to the address nnn
  *
- * This instruction performs a jump operation by setting the program counter (PC)
- * to the address nnn (specified by `location`). This effectively
- * transfers control to the specified memory location.
+ * Performs a jump by setting the program counter (PC) to the address `nnn`
+ * (specified by `location`), transferring control to that memory location.
  *
  * @param chip8_data Pointer to the CHIP-8 emulator state.
  * @param nnn The 12-bit address to jump to
@@ -59,10 +58,10 @@ void	jump(chip8 *chip8_data, uint16_t location) {
 /**
  * @brief 2nnn - CALL addr - Call subroutine at nnn
  *
- * This function handles the 2nnn instruction, which is used to call a subroutine
- * located at the specified memory address (nnn). The current program counter (PC)
- * is pushed onto the stack before jumping to the subroutine, allowing the program
- * to return to the calling location later.
+ * Handles the 2nnn instruction, used to call a subroutine at the memory
+ * address `nnn` (specified by `location`). The current program counter
+ * (PC) is pushed onto the stack before jumping to the subroutine,
+ * allowing the program to return to the calling location later.
  *
  * @param chip8_data Pointer to the CHIP-8 emulator state structure.
  * @param location The memory address (nnn) of the subroutine to call.
@@ -131,7 +130,7 @@ void	skip_equal_register(chip8 *chip8_data, uint8_t register_vx, uint8_t registe
 /**
  * @brief 6xkk - LD Vx, byte - Sets Vx to the immediate value kk
  *
- * This function sets the value of the register Vx (specified by `register_v`)
+ * This function sets the value of the register `Vx` (specified by `register_v`)
  * to the immediate value `kk` (specified by `value`).
  *
  * @param chip8_data Pointer to the CHIP-8 emulator state.
@@ -146,7 +145,7 @@ void	set_register_vx(chip8 *chip8_data, uint8_t register_v, uint8_t value) {
  * @brief 7xkk - ADD Vx, byte - ADD Vx, kk
  *
  * Adds the immediate value `kk` (specified by `value`) to the value in
- * register Vx (specified by `register_v`) and stores the result back in Vx.
+ * register `Vx` (specified by `register_v`) and stores the result back in `Vx`.
  * This operation does not affect the carry flag (VF).
  *
  * @param chip8_data Pointer to the CHIP-8 emulator state.
@@ -177,7 +176,7 @@ void	skip_not_equal_register(chip8 *chip8_data, uint8_t register_vx, uint8_t reg
 /**
  * @brief Ann - LD I, addr - Sets the index register (I) to the immediate value (kk)
  *
- * Sets the index register (I) to the specified 12-bit address.
+ * Sets the index register (I) to the immediate value `kk` (specified by `value`).
  *
  * The Annn instruction updates the I register with the immediate value
  * provided in the `value` parameter. This is commonly used to set the
