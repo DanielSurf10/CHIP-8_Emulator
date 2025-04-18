@@ -32,9 +32,9 @@ def write_integer_as_binary(file_name, number, byte_order="big"):
 # RET				| 0x20E | 00EE
 
 
+# Teste SE e SNE
 write_integer_as_binary("teste", 0x6005410061013200120C121062001212620193001218121C6300120273011202)
 
-# Teste SE e SNE
 # Código
 # V[0] = 5
 #
@@ -76,3 +76,35 @@ write_integer_as_binary("teste", 0x6005410061013200120C1210620012126201930012181
 # bloco4:			|		|
 # ADD	V3, 1		| 0x21C | 7301
 # JP	loop		| 0x21E | 1202
+
+
+# Teste LD, OR, AND, XOR, ADD, SUB, SUBN, SHL, SHR
+write_integer_as_binary("teste", 0x600F62FF63FF64FF6505660667046806690181008201830284038655865587578577890E8906)
+
+# Assembly			| addr	| Opcode (hex)
+# ------------------|-------|-------------
+# LD	V0, 0F		| 0x200 | 600F
+# LD	V2, FF		| 0x202 | 62FF
+# LD	V3, FF		| 0x204 | 63FF
+# LD	V4, FF		| 0x206 | 64FF
+# LD	V5, 05		| 0x208 | 6505
+# LD	V6, 06		| 0x20A | 6606
+# LD	V7, 04		| 0x20C | 6704
+# LD	V8, 06		| 0x20E | 6806
+# LD	V9, 01		| 0x210 | 6901
+#					|		|
+# LD	V1, V0		| 0x212 | 8100
+# OR	V2, V0		| 0x214 | 8201
+# AND	V3, V0		| 0x216 | 8302
+# XOR	V4, V0		| 0x218 | 8403
+#					|		|
+# ; VX = VX - VY	|		|
+# SUB	V6, V5		| 0x21A | 8655		; vx > vy
+# SUB	V6, V5		| 0x21C | 8655		; vx <= vy
+#					|		|
+# ; VX = VY - VX	|		|
+# SUBN	V7, V5		| 0x21E | 8757		; vy > vx
+# SUBN	V5, V7		| 0x220 | 8577		; vy <= vx
+#					|		|
+# SHL	V9, V0		| 0x222 | 890E
+# SHR	V9, V0		| 0x224 | 8906
