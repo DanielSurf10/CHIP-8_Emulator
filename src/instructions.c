@@ -3,12 +3,8 @@
 /**
  * @brief 00E0 - CLS - Clears the display by setting all pixels to the "off" state
  *
- * The 00E0 instruction is used to clear the screen.
- * When executed, it resets the entire display memory,
- * effectively erasing any graphics currently being displayed.
- *
- * This instruction is commonly used at the beginning of a program or
- * before rendering a new frame to ensure a clean display.
+ * Clears the screen by resetting the display memory, erasing all graphics.
+ * Often used at the start of a program or before rendering a new frame.
  *
  * @param chip8_data Pointer to the CHIP-8 emulator state.
  */
@@ -19,14 +15,9 @@ void	clear_screen(chip8 *chip8_data) {
 /**
  * @brief 00EE - RET - Return from a subroutine
  *
- * This instruction is used to return from a subroutine. It pops the
- * address from the top of the stack and sets the program counter (PC)
- * to that address. The stack pointer (SP) is decremented to reflect
- * the removal of the address from the stack.
+ * Return from a subroutine. Pops the address from the stack and sets the PC to it.
+ * Decrements the stack pointer (SP) to reflect the removal of the address.
  *
- * Instruction: 00EE
- * - Decrements the stack pointer (SP).
- * - Sets the program counter (PC) to the address stored at the top of the stack.
  *
  * @param chip8_data Pointer to the CHIP-8 emulator state structure.
  *
@@ -58,10 +49,8 @@ void	jump(chip8 *chip8_data, uint16_t location) {
 /**
  * @brief 2nnn - CALL addr - Call subroutine at nnn
  *
- * Handles the 2nnn instruction, used to call a subroutine at the memory
- * address `nnn` (specified by `location`). The current program counter
- * (PC) is pushed onto the stack before jumping to the subroutine,
- * allowing the program to return to the calling location later.
+ * Calls a subroutine at address `nnn` (specified by `location`). Saves the current PC
+ * on the top of the stack for later return, then jumps to the subroutine.
  *
  * @param chip8_data Pointer to the CHIP-8 emulator state structure.
  * @param location The memory address (nnn) of the subroutine to call.
@@ -81,9 +70,10 @@ void	call(chip8 *chip8_data, uint16_t location) {
 /**
  * @brief 3xkk - SE Vx, byte - Skip next instruction if Vx is equal to kk
  *
- * Checks if the value in register `Vx` (indicated by `register_v`) is equal
- * to the immediate value `kk` (provided as `value`). If true, it
- * increments the program counter (pc) by 2, skipping the next instruction.
+ * Compares the value in register `Vx` (specified by `register_v`) with the
+ * immediate value `kk` (specified by `value`).
+ * If they are equal, increments the program counter (pc) by 2 to skip
+ * the next instruction.
  *
  * @param chip8_data Pointer to the CHIP-8 emulator state structure.
  * @param register_v The index of the V register to compare (0x0 to 0xF).
@@ -97,9 +87,10 @@ void	skip_equal(chip8 *chip8_data, uint8_t register_v, uint8_t value) {
 /**
  * @brief 4xkk - SNE Vx, byte - Skip next instruction if Vx is not equal to kk
  *
- * Checks if the value in register `Vx` (indicated by `register_v`) is not
- * equal to the immediate value `kk` (provided as `value`). If true, it
- * increments the program counter (pc) by 2, skipping the next instruction.
+ * Compares the value in register `Vx` (specified by `register_v`) with the
+ * immediate value `kk` (specified by `value`).
+ * If they are different, increments the program counter (pc) by 2 to skip
+ * the next instruction.
  *
  * @param chip8_data Pointer to the CHIP-8 emulator state structure.
  * @param register_v The index of the register Vx to compare (0x0 to 0xF).
@@ -119,8 +110,8 @@ void	skip_not_equal(chip8 *chip8_data, uint8_t register_v, uint8_t value) {
  * skipping the next instruction in memory.
  *
  * @param chip8_data Pointer to the CHIP-8 emulator state structure.
- * @param register_vx The index of the Vx register to compare.
- * @param register_vy The index of the Vy register to compare.
+ * @param register_vx Index of the Vx register (0x0 to 0xF).
+ * @param register_vy Index of the Vy register (0x0 to 0xF).
  */
 void	skip_equal_register(chip8 *chip8_data, uint8_t register_vx, uint8_t register_vy) {
 	if (chip8_data->V[register_vx] == chip8_data->V[register_vy])
@@ -355,7 +346,7 @@ void	shift_vx_left(chip8 *chip8_data, uint8_t register_vx, uint8_t register_vy) 
 }
 
 /**
- * @brief 9xy0 - SNE Vx, Vy - Skip the next instruction if Vx is equal to Vy.
+ * @brief 9xy0 - SNE Vx, Vy - Skip the next instruction if Vx is equal to Vy
  *
  * This function checks if the values stored in the registers `Vx` and `Vy`
  * (specified by `register_vx` and `register_vy`) are not equal. If they are
@@ -375,10 +366,7 @@ void	skip_not_equal_register(chip8 *chip8_data, uint8_t register_vx, uint8_t reg
  * @brief Ann - LD I, addr - Sets the index register (I) to the immediate value (kk)
  *
  * Sets the index register (I) to the immediate value `kk` (specified by `value`).
- *
- * The Annn instruction updates the I register with the immediate value
- * provided in the `value` parameter. This is commonly used to set the
- * memory address for subsequent operations involving the I register.
+ * Commonly used to set the memory address for operations involving the I register.
  *
  * @param chip8_data Pointer to the CHIP-8 emulator data structure.
  * @param value The 12-bit address to set the index register I to.
