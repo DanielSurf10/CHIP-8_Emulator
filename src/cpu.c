@@ -76,6 +76,10 @@ void	decode_and_execute(chip8 *chip8_data, uint16_t opcode) {
 		opcode_7(chip8_data, opcode);
 		break;
 
+	case 0x8:
+		opcode_8(chip8_data, opcode);
+		break;
+
 	case 0x9:
 		opcode_9(chip8_data, opcode);
 		break;

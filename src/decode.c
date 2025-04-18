@@ -41,11 +41,54 @@ void	opcode_5(chip8 *chip8_data, uint16_t opcode) {
 }
 
 void	opcode_6(chip8 *chip8_data, uint16_t opcode) {
-	set_register_vx(chip8_data, (opcode >> 8) & 0xF, opcode & 0xFF);
+	copy_value_to_vx(chip8_data, (opcode >> 8) & 0xF, opcode & 0xFF);
 }
 
 void	opcode_7(chip8 *chip8_data, uint16_t opcode) {
-	add_value_to_register_vx(chip8_data, (opcode >> 8) & 0xF, opcode & 0xFF);
+	add_value_to_vx(chip8_data, (opcode >> 8) & 0xF, opcode & 0xFF);
+}
+
+void	opcode_8(chip8 *chip8_data, uint16_t opcode) {
+	switch (opcode & 0xF) {
+	case 0x0:
+		copy_vx_from_vy(chip8_data, (opcode >> 8) & 0xF, (opcode >> 4) & 0xF);
+		break;
+
+	case 0x1:
+		binary_or_between_registers(chip8_data, (opcode >> 8) & 0xF, (opcode >> 4) & 0xF);
+		break;
+
+	case 0x2:
+		binary_and_between_registers(chip8_data, (opcode >> 8) & 0xF, (opcode >> 4) & 0xF);
+		break;
+
+	case 0x3:
+		binary_xor_between_registers(chip8_data, (opcode >> 8) & 0xF, (opcode >> 4) & 0xF);
+		break;
+
+	case 0x4:
+		add_vy_to_vx(chip8_data, (opcode >> 8) & 0xF, (opcode >> 4) & 0xF);
+		break;
+
+	case 0x5:
+		subtract_vy_from_vx(chip8_data, (opcode >> 8) & 0xF, (opcode >> 4) & 0xF);
+		break;
+
+	case 0x6:
+		shift_vx_right(chip8_data, (opcode >> 8) & 0xF, (opcode >> 4) & 0xF);
+		break;
+
+	case 0x7:
+		subtract_vx_from_vy(chip8_data, (opcode >> 8) & 0xF, (opcode >> 4) & 0xF);
+		break;
+
+	case 0xE:
+		shift_vx_left(chip8_data, (opcode >> 8) & 0xF, (opcode >> 4) & 0xF);
+		break;
+
+	default:
+		break;
+	}
 }
 
 void	opcode_9(chip8 *chip8_data, uint16_t opcode) {

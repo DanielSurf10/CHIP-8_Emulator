@@ -137,7 +137,7 @@ void	skip_equal_register(chip8 *chip8_data, uint8_t register_vx, uint8_t registe
  * @param register_v The index of the V register (0x0 to 0xF) to be updated.
  * @param value The immediate value (kk) to set in the specified register Vx.
  */
-void	set_register_vx(chip8 *chip8_data, uint8_t register_v, uint8_t value) {
+void	copy_value_to_vx(chip8 *chip8_data, uint8_t register_v, uint8_t value) {
 	chip8_data->V[register_v] = value;
 }
 
@@ -152,8 +152,206 @@ void	set_register_vx(chip8 *chip8_data, uint8_t register_v, uint8_t value) {
  * @param register_v The index of the V register (0x0 to 0xF) to be updated.
  * @param value The immediate value (kk) to be added to the register Vx.
  */
-void	add_value_to_register_vx(chip8 *chip8_data, uint8_t register_v, uint8_t value) {
+void	add_value_to_vx(chip8 *chip8_data, uint8_t register_v, uint8_t value) {
 	chip8_data->V[register_v] = chip8_data->V[register_v] + value;
+}
+
+/**
+ * @brief 8xy0 - LD Vx, Vy - Set Vx to the value of Vy
+ *
+ * Copies the value from register `Vy` (specified by `register_vy`) into
+ * register `Vx` (specified by `register_vx`). This does not affect any
+ * flags or other registers.
+ *
+ * @param chip8_data Pointer to the CHIP-8 emulator state structure.
+ * @param register_vx Index of the destination register Vx (0x0 to 0xF).
+ * @param register_vy Index of the source register Vy (0x0 to 0xF).
+ */
+void	copy_vx_from_vy(chip8 *chip8_data, uint8_t register_vx, uint8_t register_vy) {
+	chip8_data->V[register_vx] = chip8_data->V[register_vy];
+}
+
+/**
+ * @brief 8xy1 - OR Vx, Vy - Performs a bitwise OR operation between Vx and Vy
+ *
+ * Performs a bitwise OR operation between the values in registers `Vx`
+ * (specified by `register_vx`) and `Vy` (specified by `register_vy`),
+ * and stores the result in `Vx`.
+ * The value in `Vy` remains unchanged.
+ *
+ * @param chip8_data Pointer to the CHIP-8 emulator state.
+ * @param register_vx Index of the Vx register (0x0 to 0xF).
+ * @param register_vy Index of the Vy register (0x0 to 0xF).
+ */
+void	binary_or_between_registers(chip8 *chip8_data, uint8_t register_vx, uint8_t register_vy) {
+	chip8_data->V[register_vx] = chip8_data->V[register_vx] | chip8_data->V[register_vy];
+}
+
+/**
+ * @brief 8xy2 - AND Vx, Vy - Performs a bitwise AND operation between Vx and Vy
+ *
+ * This instruction performs a bitwise AND operation between the values in
+ * registers `Vx` (specified by `register_vx`) and `Vy` (specified by `register_vy`),
+ * and stores the result in `Vx`. The value in `Vy` remains unchanged.
+ *
+ * @param chip8_data Pointer to the CHIP-8 emulator state.
+ * @param register_vx Index of the Vx register (0x0 to 0xF).
+ * @param register_vy Index of the Vy register (0x0 to 0xF).
+ */
+void	binary_and_between_registers(chip8 *chip8_data, uint8_t register_vx, uint8_t register_vy) {
+	chip8_data->V[register_vx] = chip8_data->V[register_vx] & chip8_data->V[register_vy];
+}
+
+/**
+ * @brief 8xy3 - XOR Vx, Vy - Performs a bitwise XOR operation between Vx and Vy
+ *
+ * Performs a bitwise XOR operation between the values in registers `Vx`
+ * (specified by `register_vx`) and `Vy` (specified by `register_vy`),
+ * and stores the result in `Vx`.
+ * The value in `Vy` remains unchanged.
+ *
+ * @param chip8_data Pointer to the CHIP-8 emulator state.
+ * @param register_vx Index of the Vx register (0x0 to 0xF).
+ * @param register_vy Index of the Vy register (0x0 to 0xF).
+ */
+void	binary_xor_between_registers(chip8 *chip8_data, uint8_t register_vx, uint8_t register_vy) {
+	chip8_data->V[register_vx] = chip8_data->V[register_vx] ^ chip8_data->V[register_vy];
+}
+
+/**
+ * @brief 8xy4 - ADD Vx, Vy - Add the value stored in the registers
+ *
+ * Adds the value in register `Vy` (specified by `register_vy`) to the value
+ * in register `Vx` (specified by `register_vx`), storing the result in `Vx`.
+ * If the result exceeds 8 bits (255), the carry flag (VF) is set to 1;
+ * otherwise, it is set to 0.
+ *
+ * @param chip8_data Pointer to the CHIP-8 emulator state.
+ * @param register_vx Index of the Vx register (0x0 to 0xF).
+ * @param register_vy Index of the Vy register (0x0 to 0xF).
+ */
+void	add_vy_to_vx(chip8 *chip8_data, uint8_t register_vx, uint8_t register_vy) {
+	// Talvez precise mudar o nome da função
+	// a função deveria ter um nome onde vx aparece primeiro que vy
+	// por causa da ordem dos parâmetros
+	// algo como `adicionar_vx_em_vy_e_guardar_em_vx`
+	int	sum;
+
+	sum = chip8_data->V[register_vx] + chip8_data->V[register_vy];
+
+	chip8_data->V[0xF] = 0;
+	if (sum > 0xFF)
+		chip8_data->V[0xF] = 1;
+
+	chip8_data->V[register_vx] = sum;
+}
+
+/**
+ * @brief 8xy5 - SUB Vx, Vy - Subtract Vy from Vx
+ *
+ * Subtracts the value of register `Vy` (specified by `register_vy`) from
+ * register `Vx` (specified by `register_vx`) and stores the result in `Vx`.
+ * The VF register (carry flag) is updated as follows:
+ * - VF = 1 if `Vy` > `Vx` (no borrow occurs).
+ * - VF = 0 if `Vy` <= `Vx` (a borrow occurs).
+ *
+ * @param chip8_data Pointer to the CHIP-8 emulator state.
+ * @param register_vx Index of the Vx register (0x0 to 0xF).
+ * @param register_vy Index of the Vy register (0x0 to 0xF).
+ *
+ * @note Difference between 8xy7 (SUBN Vx, Vy) and 8xy5 (SUB Vx, Vy):
+ * - 8xy7 computes Vy - Vx and stores the result in Vx.
+ * - 8xy5 computes Vx - Vy and stores the result in Vx.
+ * - The borrow condition and VF flag behavior are inverted between the two instructions.
+ */
+void	subtract_vy_from_vx(chip8 *chip8_data, uint8_t register_vx, uint8_t register_vy) {
+	chip8_data->V[0xF] = 0;
+	if (chip8_data->V[register_vx] > chip8_data->V[register_vy])
+		chip8_data->V[0xF] = 1;
+
+	chip8_data->V[register_vx] = chip8_data->V[register_vx] - chip8_data->V[register_vy];
+}
+
+/**
+ * @brief 8xy6 - SHR Vx {, Vy} - Shifts the value in register Vx one bit to the right
+ *
+ * Shifts the value in `Vx` (specified by `register_vx`) one bit to the right.
+ * The least significant bit (LSB) of `Vx` before the shift is stored in the
+ * VF register (carry flag).
+ *
+ * @param chip8_data Pointer to the CHIP-8 emulator state structure.
+ * @param register_vx The index of the Vx register to be shifted (0x0 to 0xF).
+ * @param register_vy The index of the Vy register (0x0 to 0xF) (ignored in this implementation).
+ *
+ * @note: The `Vy` (specified by `register_vy`) parameter is ignored in
+ * this implementation, as some CHIP-8 interpreters do not use it for
+ * this instruction. The operation is performed directly on `Vx`.
+ */
+void	shift_vx_right(chip8 *chip8_data, uint8_t register_vx, uint8_t register_vy) {
+	// Talvez isso mude
+	// Porque no CHIP-48 e no SUPER-CHIP isso não tem
+	// e em alguns interpretadores de CHIP8 tem
+	// Se não tem a operação é feita direta no Vx
+	// Talvez seja necessário deixar isso opcional
+	// chip8_data->V[register_vx] = chip8_data->V[register_vy];
+
+	(void) register_vy;
+	chip8_data->V[0xF] = chip8_data->V[register_vx] & 0x1;
+	chip8_data->V[register_vx] = chip8_data->V[register_vx] >> 1;
+}
+
+/**
+ * @brief 8xy7 - SUBN Vx, Vy - Subtract Vx from Vy
+ *
+ * Subtracts the value of register `Vx` (specified by `register_vx`) from
+ * register `Vy` (specified by `register_vy`) and stores the result in `Vx`.
+ * The VF register (carry flag) is updated as follows:
+ * - VF = 1 if `Vy` > `Vx` (no borrow occurs).
+ * - VF = 0 if `Vy` <= `Vx` (a borrow occurs).
+ *
+ * @param chip8_data Pointer to the CHIP-8 emulator state.
+ * @param register_vx Index of the Vx register (0x0 to 0xF).
+ * @param register_vy Index of the Vy register (0x0 to 0xF).
+ *
+ * @note Difference between 8xy7 (SUBN Vx, Vy) and 8xy5 (SUB Vx, Vy):
+ * - 8xy7 computes Vy - Vx and stores the result in Vx.
+ * - 8xy5 computes Vx - Vy and stores the result in Vx.
+ * - The borrow condition and VF flag behavior are inverted between the two instructions.
+ */
+void	subtract_vx_from_vy(chip8 *chip8_data, uint8_t register_vx, uint8_t register_vy) {
+	chip8_data->V[0xF] = 0;
+	if (chip8_data->V[register_vy] > chip8_data->V[register_vx])
+		chip8_data->V[0xF] = 1;
+
+	chip8_data->V[register_vx] = chip8_data->V[register_vy] - chip8_data->V[register_vx];
+}
+
+/**
+ * @brief 8xyE - SHL Vx {, Vy} - Shifts the value in register Vx one bit to the left
+ *
+ * Shifts the value in `Vx` (specified by `register_vx`) one bit to the left.
+ * The least significant bit (LSB) of `Vx` before the shift is stored in the
+ * VF register (carry flag).
+ *
+ * @param chip8_data Pointer to the CHIP-8 emulator state structure.
+ * @param register_vx The index of the Vx register to be shifted (0x0 to 0xF).
+ * @param register_vy The index of the Vy register (0x0 to 0xF) (ignored in this implementation).
+ *
+ * @note: The `Vy` (specified by `register_vy`) parameter is ignored in
+ * this implementation, as some CHIP-8 interpreters do not use it for
+ * this instruction. The operation is performed directly on `Vx`.
+ */
+void	shift_vx_left(chip8 *chip8_data, uint8_t register_vx, uint8_t register_vy) {
+	// Talvez isso mude
+	// Porque no CHIP-48 e no SUPER-CHIP isso não tem
+	// e em alguns interpretadores de CHIP8 tem
+	// Se não tem a operação é feita direta no Vx
+	// Talvez seja necessário deixar isso opcional
+	// chip8_data->V[register_vx] = chip8_data->V[register_vy];
+
+	(void) register_vy;
+	chip8_data->V[0xF] = chip8_data->V[register_vx] >> 7;
+	chip8_data->V[register_vx] = chip8_data->V[register_vx] << 1;
 }
 
 /**
